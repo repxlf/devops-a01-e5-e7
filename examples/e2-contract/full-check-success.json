@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "job_id": "job-full-c0-001",
+  "trace_id": "trace-a01-demo-001",
+  "job_type": "FULL_CHECK",
+  "status": "SUCCEEDED",
+  "execution": {
+    "duration_ms": 1840
+  },
+  "input": {
+    "repository": {
+      "commit": "00000000000000000000000000000000000000c0"
+    },
+    "environment": {
+      "configuration_id": "cc-MODE0"
+    }
+  },
+  "output": {
+    "artifacts": [
+      {
+        "artifact_id": "graph-actual-c0",
+        "type": "ACTUAL_GRAPH",
+        "uri": "artifact://pair-A01-B01/job-full-c0-001/actual.json",
+        "media_type": "application/json",
+        "producer_job_id": "job-full-c0-001"
+      },
+      {
+        "artifact_id": "graph-declared-c0",
+        "type": "DECLARED_GRAPH",
+        "uri": "artifact://pair-A01-B01/job-full-c0-001/declared.json",
+        "media_type": "application/json",
+        "producer_job_id": "job-full-c0-001"
+      },
+      {
+        "artifact_id": "report-md-c0",
+        "type": "MD_REPORT",
+        "uri": "artifact://pair-A01-B01/job-full-c0-001/md-report.json",
+        "media_type": "application/json",
+        "producer_job_id": "job-full-c0-001"
+      },
+      {
+        "artifact_id": "report-rd-c0",
+        "type": "RD_REPORT",
+        "uri": "artifact://pair-A01-B01/job-full-c0-001/rd-report.json",
+        "media_type": "application/json",
+        "producer_job_id": "job-full-c0-001"
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "finding-md-c0-001",
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "config.h",
+        "commit": "00000000000000000000000000000000000000c0",
+        "detector": "MOCK_FIXTURE",
+        "location": {"file": "Makefile", "line": 8},
+        "evidence": ["fixture:actual-c0-edge", "fixture:declared-c0-missing-edge"]
+      }
+    ]
+  },
+  "error": null,
+  "provenance": "MOCK_FIXTURE"
+}

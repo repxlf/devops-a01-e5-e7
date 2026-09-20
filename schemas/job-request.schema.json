@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://git.nju.edu.cn/devops-a01/devops-a01/devops-a01/-/raw/main/schemas/job-request.schema.json",
+  "title": "DevOps A01 job creation request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "trace_id", "job_type", "idempotency_key", "input"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "provenance": {"enum": ["MOCK_FIXTURE", "CONTRACT_EXAMPLE", "REAL_TOOL_OUTPUT"]},
+    "trace_id": {"type": "string", "minLength": 1},
+    "job_type": {"enum": ["DRAFT", "FULL_CHECK", "INCREMENTAL_CHECK", "REPAIR"]},
+    "idempotency_key": {"type": "string", "minLength": 1},
+    "input": {"type": "object"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"job_type": {"const": "INCREMENTAL_CHECK"}}},
+      "then": {
+        "properties": {
+          "input": {
+            "required": ["base_commit", "repository", "baseline"]
+          }
+        }
+      }
+    }
+  ]
+}

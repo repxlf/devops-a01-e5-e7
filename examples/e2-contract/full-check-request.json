@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "trace-a01-demo-001",
+  "job_type": "FULL_CHECK",
+  "idempotency_key": "idem-full-c0-001",
+  "input": {
+    "repository": {
+      "url": "https://example.invalid/devops-a01/md-rd-project.git",
+      "commit": "00000000000000000000000000000000000000c0"
+    },
+    "environment": {
+      "image": "pair-a01-b01/demo-build:mock-1",
+      "configuration_id": "cc-MODE0"
+    },
+    "build": {
+      "project_root": "/workspace/md-rd-project",
+      "clean_command": "make clean",
+      "build_command": "make -j2"
+    }
+  },
+  "provenance": "CONTRACT_EXAMPLE"
+}

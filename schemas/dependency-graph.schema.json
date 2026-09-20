@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://git.nju.edu.cn/devops-a01/devops-a01/devops-a01/-/raw/main/schemas/dependency-graph.schema.json",
+  "title": "DevOps A01 dependency graph",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["graph_id", "graph_kind", "commit", "configuration_id", "nodes", "edges"],
+  "properties": {
+    "provenance": {"enum": ["MOCK_FIXTURE", "CONTRACT_EXAMPLE", "REAL_TOOL_OUTPUT"]},
+    "graph_id": {"type": "string"},
+    "graph_kind": {"enum": ["ACTUAL", "DECLARED"]},
+    "commit": {"type": "string"},
+    "configuration_id": {"type": "string"},
+    "nodes": {"type": "array", "items": {"type": "string"}},
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "target"],
+        "properties": {
+          "source": {"type": "string"},
+          "target": {"type": "string"},
+          "evidence": {"type": "string"}
+        }
+      }
+    }
+  }
+}

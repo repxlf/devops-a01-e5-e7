@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "trace-invalid-002",
+  "job_type": "INCREMENTAL_CHECK",
+  "idempotency_key": "idem-invalid-002",
+  "input": {
+    "base_commit": "00000000000000000000000000000000000000c0",
+    "repository": {
+      "commit": "00000000000000000000000000000000000000c1"
+    }
+  }
+}

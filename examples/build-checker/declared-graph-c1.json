@@ -1,0 +1,12 @@
+{
+  "graph_id": "declared-c1",
+  "graph_kind": "DECLARED",
+  "commit": "00000000000000000000000000000000000000c1",
+  "configuration_id": "cc-MODE0",
+  "nodes": ["main.o", "config.h", "util.o", "util.h"],
+  "edges": [
+    {"source": "main.o", "target": "config.h", "evidence": "MOCK_FIXTURE:declared-edge-001"},
+    {"source": "main.o", "target": "util.o", "evidence": "MOCK_FIXTURE:declared-edge-002"}
+  ],
+  "provenance": "MOCK_FIXTURE"
+}

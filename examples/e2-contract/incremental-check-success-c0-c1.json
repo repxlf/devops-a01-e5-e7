@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "job_id": "job-incremental-c0-c1-001",
+  "trace_id": "trace-a01-demo-002",
+  "job_type": "INCREMENTAL_CHECK",
+  "status": "SUCCEEDED",
+  "execution": {
+    "duration_ms": 740
+  },
+  "input": {
+    "base_commit": "00000000000000000000000000000000000000c0",
+    "repository": {
+      "commit": "00000000000000000000000000000000000000c1"
+    },
+    "baseline": {
+      "actual_graph_uri": "artifact://pair-A01-B01/job-full-c0-001/actual.json",
+      "commit": "00000000000000000000000000000000000000c0",
+      "configuration_id": "cc-MODE0"
+    }
+  },
+  "output": {
+    "artifacts": [
+      {
+        "artifact_id": "graph-actual-c1-incremental",
+        "type": "ACTUAL_GRAPH",
+        "uri": "artifact://pair-A01-B01/job-incremental-c0-c1-001/actual.json",
+        "media_type": "application/json",
+        "producer_job_id": "job-incremental-c0-c1-001"
+      }
+    ],
+    "added_findings": [
+      {
+        "finding_id": "finding-md-c1-001",
+        "type": "MISSING",
+        "target": "util.o",
+        "dependency": "util.h",
+        "commit": "00000000000000000000000000000000000000c1",
+        "detector": "MOCK_FIXTURE"
+      }
+    ],
+    "resolved_findings": [
+      "finding-md-c0-001"
+    ],
+    "findings": []
+  },
+  "error": null,
+  "provenance": "MOCK_FIXTURE"
+}

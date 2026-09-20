@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "trace-a01-demo-002",
+  "job_type": "INCREMENTAL_CHECK",
+  "idempotency_key": "idem-incremental-c0-c1-001",
+  "input": {
+    "base_commit": "00000000000000000000000000000000000000c0",
+    "repository": {
+      "url": "https://example.invalid/devops-a01/md-rd-project.git",
+      "commit": "00000000000000000000000000000000000000c1"
+    },
+    "environment": {
+      "image": "pair-a01-b01/demo-build:mock-1",
+      "configuration_id": "cc-MODE0"
+    },
+    "build": {
+      "project_root": "/workspace/md-rd-project",
+      "clean_command": "make clean",
+      "build_command": "make -j2"
+    },
+    "baseline": {
+      "actual_graph_uri": "artifact://pair-A01-B01/job-full-c0-001/actual.json",
+      "commit": "00000000000000000000000000000000000000c0",
+      "configuration_id": "cc-MODE0"
+    }
+  },
+  "provenance": "CONTRACT_EXAMPLE"
+}

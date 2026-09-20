@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devops-a01-dependency-checking"
+version = "0.1.0"
+description = "A-group contract and implementation scaffold for BuildChecker and EChecker"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,13 @@
+{
+  "graph_id": "actual-c1",
+  "graph_kind": "ACTUAL",
+  "commit": "00000000000000000000000000000000000000c1",
+  "configuration_id": "cc-MODE0",
+  "nodes": ["main.o", "config.h", "util.o", "util.h"],
+  "edges": [
+    {"source": "main.o", "target": "config.h", "evidence": "MOCK_FIXTURE:compile-command-002"},
+    {"source": "main.o", "target": "util.o", "evidence": "MOCK_FIXTURE:link-command-002"},
+    {"source": "util.o", "target": "util.h", "evidence": "MOCK_FIXTURE:compile-command-003"}
+  ],
+  "provenance": "MOCK_FIXTURE"
+}

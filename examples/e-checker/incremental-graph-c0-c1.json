@@ -1,0 +1,14 @@
+{
+  "graph_id": "actual-c1-incremental",
+  "graph_kind": "ACTUAL",
+  "base_graph_id": "actual-c0",
+  "commit": "00000000000000000000000000000000000000c1",
+  "configuration_id": "cc-MODE0",
+  "nodes": ["main.o", "config.h", "util.o", "util.h"],
+  "edges": [
+    {"source": "main.o", "target": "config.h", "evidence": "MOCK_FIXTURE:incremental-carry-forward"},
+    {"source": "main.o", "target": "util.o", "evidence": "MOCK_FIXTURE:incremental-carry-forward"},
+    {"source": "util.o", "target": "util.h", "evidence": "MOCK_FIXTURE:incremental-new-edge"}
+  ],
+  "provenance": "MOCK_FIXTURE"
+}

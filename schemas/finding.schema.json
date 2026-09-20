@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://git.nju.edu.cn/devops-a01/devops-a01/devops-a01/-/raw/main/schemas/finding.schema.json",
+  "title": "DevOps A01 dependency finding",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["finding_id", "type", "target", "dependency", "commit", "detector"],
+  "properties": {
+    "provenance": {"enum": ["MOCK_FIXTURE", "CONTRACT_EXAMPLE", "REAL_TOOL_OUTPUT"]},
+    "finding_id": {"type": "string", "minLength": 1},
+    "type": {"enum": ["MISSING", "REDUNDANT"]},
+    "target": {"type": "string", "minLength": 1},
+    "dependency": {"type": "string", "minLength": 1},
+    "commit": {"type": "string", "minLength": 1},
+    "detector": {"type": "string", "minLength": 1},
+    "severity": {"type": "string"},
+    "location": {"type": "object"},
+    "evidence": {"type": "array", "items": {"type": "string"}}
+  }
+}

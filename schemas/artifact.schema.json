@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://git.nju.edu.cn/devops-a01/devops-a01/devops-a01/-/raw/main/schemas/artifact.schema.json",
+  "title": "DevOps A01 artifact reference",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_id", "type", "uri", "media_type", "producer_job_id"],
+  "properties": {
+    "provenance": {"enum": ["MOCK_FIXTURE", "CONTRACT_EXAMPLE", "REAL_TOOL_OUTPUT"]},
+    "artifact_id": {"type": "string", "minLength": 1},
+    "type": {"enum": ["ACTUAL_GRAPH", "DECLARED_GRAPH", "ERROR_REPORT", "MD_REPORT", "RD_REPORT", "PATCH", "BUILD_LOG", "TEST_REPORT"]},
+    "uri": {"type": "string", "pattern": "^artifact://"},
+    "media_type": {"type": "string", "minLength": 1},
+    "producer_job_id": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string"}
+  }
+}

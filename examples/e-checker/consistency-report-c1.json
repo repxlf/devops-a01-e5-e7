@@ -1,0 +1,12 @@
+{
+  "comparison_id": "compare-c1-incremental-vs-full",
+  "base_commit": "00000000000000000000000000000000000000c0",
+  "current_commit": "00000000000000000000000000000000000000c1",
+  "incremental_result": "examples/e-checker/incremental-graph-c0-c1.json",
+  "full_result": "examples/build-checker/actual-graph-c1.json",
+  "graph_equal": true,
+  "findings_equal": true,
+  "incremental_duration_ms": 740,
+  "full_duration_ms": 1820,
+  "provenance": "MOCK_FIXTURE"
+}

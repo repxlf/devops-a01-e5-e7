@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://git.nju.edu.cn/devops-a01/devops-a01/devops-a01/-/raw/main/schemas/task.schema.json",
+  "title": "DevOps A01 canonical job",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "job_id", "trace_id", "job_type", "status", "input", "output", "error"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "provenance": {"enum": ["MOCK_FIXTURE", "CONTRACT_EXAMPLE", "REAL_TOOL_OUTPUT"]},
+    "job_id": {"type": "string", "minLength": 1},
+    "trace_id": {"type": "string", "minLength": 1},
+    "job_type": {"enum": ["DRAFT", "FULL_CHECK", "INCREMENTAL_CHECK", "REPAIR"]},
+    "status": {"enum": ["QUEUED", "RUNNING", "SUCCEEDED", "FAILED", "TIMED_OUT", "CANCELLED"]},
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "started_at": {"type": "string"},
+        "finished_at": {"type": "string"},
+        "duration_ms": {"type": "integer", "minimum": 0}
+      }
+    },
+    "input": {"type": "object"},
+    "output": {
+      "type": ["object", "null"],
+      "properties": {
+        "artifacts": {"type": "array", "items": {"$ref": "artifact.schema.json"}},
+        "findings": {"type": "array", "items": {"$ref": "finding.schema.json"}},
+        "added_findings": {"type": "array", "items": {"$ref": "finding.schema.json"}},
+        "resolved_findings": {"type": "array", "items": {"$ref": "finding.schema.json"}},
+        "decision": {"enum": ["ACCEPTED", "REJECTED"]}
+      }
+    },
+    "error": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {"enum": ["ENV_3002", "EXEC_4002", "ANALYSIS_5001"]},
+        "message": {"type": "string", "minLength": 1},
+        "retryable": {"type": "boolean"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"job_type": {"const": "INCREMENTAL_CHECK"}}},
+      "then": {
+        "properties": {
+          "input": {
+            "required": ["base_commit", "repository", "baseline"]
+          }
+        }
+      }
+    }
+  ]
+}

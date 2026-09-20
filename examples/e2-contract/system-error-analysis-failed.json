@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "job_id": "job-full-c1-failed-001",
+  "trace_id": "trace-a01-demo-003",
+  "job_type": "FULL_CHECK",
+  "status": "FAILED",
+  "input": {},
+  "output": null,
+  "error": {
+    "code": "ANALYSIS_5001",
+    "message": "Analyzer did not complete for the mock fixture",
+    "retryable": false
+  },
+  "provenance": "MOCK_FIXTURE"
+}

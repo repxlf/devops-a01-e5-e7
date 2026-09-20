@@ -1,0 +1,10 @@
+{
+  "provenance": "MOCK_FIXTURE",
+  "repository_url": "https://example.invalid/devops-a01/md-rd-project.git",
+  "configuration_id": "cc-MODE0",
+  "commits": {
+    "C0": "00000000000000000000000000000000000000c0",
+    "C1": "00000000000000000000000000000000000000c1",
+    "C2": "00000000000000000000000000000000000000c2"
+  }
+}
