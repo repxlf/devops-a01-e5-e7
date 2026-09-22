@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "job_id": "job-draft-c0-001",
+  "trace_id": "trace-a01-demo-draft-001",
+  "job_type": "DRAFT",
+  "status": "SUCCEEDED",
+  "input": {
+    "repository": {
+      "commit": "00000000000000000000000000000000000000c0"
+    }
+  },
+  "output": {
+    "repository": {
+      "commit": "00000000000000000000000000000000000000c0"
+    },
+    "environment": {
+      "image": "pair-a01-b01/demo-build:mock-1",
+      "configuration_id": "cc-MODE0"
+    },
+    "build": {
+      "status": "PASSED",
+      "verification_status": "PASSED"
+    },
+    "artifacts": [
+      {
+        "artifact_id": "draft-log-c0-001",
+        "type": "BUILD_LOG",
+        "uri": "artifact://pair-A01-B01/job-draft-c0-001/build.log",
+        "media_type": "text/plain",
+        "producer_job_id": "job-draft-c0-001"
+      }
+    ]
+  },
+  "error": null,
+  "provenance": "MOCK_FIXTURE"
+}

@@ -188,6 +188,8 @@ E2
 
 E2 的契约位于 `schemas/`、`examples/e2-contract/` 和 `docs/API_CONTRACT.md`。后续实现应消费这些契约，而不是重新发明一套输入输出格式。
 
+E2 要求到文件和验证命令的逐项对应关系见 `docs/E2_CHECKLIST.md`。
+
 ## 6. 接入真实实现的顺序
 
 1. 将 `fixtures/projects/md-rd-project/` 替换为实际 MD/RD 项目。

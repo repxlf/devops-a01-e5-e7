@@ -39,9 +39,25 @@
       }
     ],
     "resolved_findings": [
-      "finding-md-c0-001"
+      {
+        "finding_id": "finding-md-c0-001",
+        "type": "MISSING",
+        "target": "main.o",
+        "dependency": "config.h",
+        "commit": "00000000000000000000000000000000000000c0",
+        "detector": "MOCK_FIXTURE"
+      }
     ],
-    "findings": []
+    "findings": [
+      {
+        "finding_id": "finding-md-c1-001",
+        "type": "MISSING",
+        "target": "util.o",
+        "dependency": "util.h",
+        "commit": "00000000000000000000000000000000000000c1",
+        "detector": "MOCK_FIXTURE"
+      }
+    ]
   },
   "error": null,
   "provenance": "MOCK_FIXTURE"

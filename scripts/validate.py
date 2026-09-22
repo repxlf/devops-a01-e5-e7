@@ -42,8 +42,25 @@ def validate_request(value: dict[str, Any]) -> None:
         raise ValueError("idempotency_key is required")
     if not isinstance(value.get("input"), dict):
         raise ValueError("input must be an object")
-    if value["job_type"] == "INCREMENTAL_CHECK":
-        input_value = value["input"]
+    input_value = value["input"]
+    if value["job_type"] == "DRAFT":
+        if not isinstance(input_value.get("repository"), dict) or not input_value["repository"].get("commit"):
+            raise ValueError("DRAFT requires repository.commit")
+        if not isinstance(input_value.get("build"), dict) or not input_value["build"].get("command"):
+            raise ValueError("DRAFT requires build.command")
+    elif value["job_type"] == "FULL_CHECK":
+        if not isinstance(input_value.get("repository"), dict) or not input_value["repository"].get("commit"):
+            raise ValueError("FULL_CHECK requires repository.commit")
+        if not isinstance(input_value.get("environment"), dict) or not input_value["environment"].get("configuration_id"):
+            raise ValueError("FULL_CHECK requires environment.configuration_id")
+        if not isinstance(input_value.get("build"), dict) or not input_value["build"].get("build_command"):
+            raise ValueError("FULL_CHECK requires build.build_command")
+    elif value["job_type"] == "REPAIR":
+        if not isinstance(input_value.get("repository"), dict) or not input_value["repository"].get("commit"):
+            raise ValueError("REPAIR requires repository.commit")
+        if not input_value.get("md_report_uri", "").startswith("artifact://"):
+            raise ValueError("REPAIR requires an MD report artifact URI")
+    elif value["job_type"] == "INCREMENTAL_CHECK":
         baseline = input_value.get("baseline")
         if not isinstance(baseline, dict):
             raise ValueError("baseline is required")
@@ -67,11 +84,20 @@ def validate_job(value: dict[str, Any]) -> None:
         raise ValueError("failed jobs require error")
     if value["status"] == "SUCCEEDED" and value.get("error") is not None:
         raise ValueError("successful jobs must not contain an execution error")
+    if value.get("error") is not None:
+        if value["error"].get("code") not in {"ENV_3002", "EXEC_4002", "ANALYSIS_5001"}:
+            raise ValueError("unsupported execution error code")
     output = value.get("output")
     if isinstance(output, dict):
         for artifact in output.get("artifacts", []):
             if not str(artifact.get("uri", "")).startswith("artifact://"):
                 raise ValueError("artifact URI must use artifact://")
+        for field in ("findings", "added_findings", "resolved_findings"):
+            for finding in output.get(field, []):
+                if not isinstance(finding, dict):
+                    raise ValueError(f"{field} must contain finding objects")
+                if finding.get("type") not in {"MISSING", "REDUNDANT"}:
+                    raise ValueError("unsupported finding type")
 
 
 def validate_scenario() -> None:
@@ -90,13 +116,21 @@ def validate_scenario() -> None:
 
 
 def main() -> int:
-    validate_request(load("examples/e2-contract/full-check-request.json"))
-    passed("FULL_CHECK valid request")
-
-    validate_request(load("examples/e2-contract/incremental-check-request-c0-c1.json"))
-    passed("INCREMENTAL_CHECK valid request")
+    for job_type, relative in (
+        ("DRAFT", "examples/draft/draft-request.json"),
+        ("FULL_CHECK", "examples/e2-contract/full-check-request.json"),
+        ("INCREMENTAL_CHECK", "examples/e2-contract/incremental-check-request-c0-c1.json"),
+        ("REPAIR", "examples/repair/repair-request.json"),
+    ):
+        request = load(relative)
+        validate_request(request)
+        if request["job_type"] != job_type:
+            raise ValueError(f"unexpected job type in {relative}")
+        passed(f"{job_type} valid request")
 
     for relative in (
+        "examples/draft/draft-queued.json",
+        "examples/draft/draft-success.json",
         "examples/e2-contract/full-check-queued.json",
         "examples/e2-contract/full-check-success.json",
         "examples/e2-contract/incremental-check-success-c0-c1.json",
