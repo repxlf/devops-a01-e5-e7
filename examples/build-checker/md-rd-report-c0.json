@@ -1,5 +1,6 @@
 {
-  "report_id": "report-md-rd-c0",
+  "report_type": "MD_REPORT",
+  "report_id": "report-md-c0",
   "commit": "00000000000000000000000000000000000000c0",
   "configuration_id": "cc-MODE0",
   "findings": [

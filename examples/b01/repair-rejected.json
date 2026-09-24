@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "job_id": "job-repair-c0-002",
+  "trace_id": "trace-a01-demo-repair-002",
+  "job_type": "REPAIR",
+  "status": "SUCCEEDED",
+  "execution": {
+    "duration_ms": 4120
+  },
+  "input": {
+    "repository": {
+      "url": "https://example.invalid/devops-a01/md-rd-project.git",
+      "commit": "00000000000000000000000000000000000000c0"
+    },
+    "md_report_uri": "artifact://pair-A01-B01/job-full-c0-001/md-report.json",
+    "environment": {
+      "image": "pair-a01-b01/demo-build:mock-1",
+      "configuration_id": "cc-MODE0"
+    },
+    "target_file": "Makefile",
+    "build_command": "make -j2",
+    "verify_command": "make test"
+  },
+  "output": {
+    "decision": "REJECTED",
+    "artifacts": [
+      {
+        "artifact_id": "patch-c0-002-rejected",
+        "type": "PATCH",
+        "uri": "artifact://pair-A01-B01/job-repair-c0-002/candidate.patch",
+        "media_type": "text/x-diff",
+        "producer_job_id": "job-repair-c0-002",
+        "commit": "00000000000000000000000000000000000000c0",
+        "configuration_id": "cc-MODE0"
+      },
+      {
+        "artifact_id": "build-log-repair-c0-002",
+        "type": "BUILD_LOG",
+        "uri": "artifact://pair-A01-B01/job-repair-c0-002/build.log",
+        "media_type": "text/plain",
+        "producer_job_id": "job-repair-c0-002",
+        "commit": "00000000000000000000000000000000000000c0",
+        "configuration_id": "cc-MODE0"
+      },
+      {
+        "artifact_id": "test-report-repair-c0-002",
+        "type": "TEST_REPORT",
+        "uri": "artifact://pair-A01-B01/job-repair-c0-002/verify.json",
+        "media_type": "application/json",
+        "producer_job_id": "job-repair-c0-002",
+        "commit": "00000000000000000000000000000000000000c0",
+        "configuration_id": "cc-MODE0"
+      }
+    ]
+  },
+  "error": null,
+  "provenance": "MOCK_FIXTURE"
+}

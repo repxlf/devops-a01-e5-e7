@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Asynchronous job creation response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["http_status", "job", "provenance"],
+  "properties": {
+    "http_status": {"const": 202},
+    "job": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["job_id", "status"],
+      "properties": {
+        "job_id": {"type": "string", "minLength": 1},
+        "status": {"const": "QUEUED"}
+      }
+    },
+    "provenance": {"enum": ["MOCK_FIXTURE", "CONTRACT_EXAMPLE", "REAL_TOOL_OUTPUT"]}
+  }
+}

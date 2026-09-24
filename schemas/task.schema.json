@@ -24,12 +24,28 @@
     "input": {"type": "object"},
     "output": {
       "type": ["object", "null"],
+      "additionalProperties": false,
       "properties": {
         "artifacts": {"type": "array", "items": {"$ref": "artifact.schema.json"}},
-        "findings": {"type": "array", "items": {"$ref": "finding.schema.json"}},
-        "added_findings": {"type": "array", "items": {"$ref": "finding.schema.json"}},
-        "resolved_findings": {"type": "array", "items": {"$ref": "finding.schema.json"}},
-        "decision": {"enum": ["ACCEPTED", "REJECTED"]}
+        "findings": {
+          "type": "array",
+          "items": {"$ref": "finding.schema.json"},
+          "description": "All findings under the current commit."
+        },
+        "added_findings": {
+          "type": "array",
+          "items": {"$ref": "finding.schema.json"},
+          "description": "New findings relative to the incremental baseline."
+        },
+        "resolved_findings": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "description": "Finding IDs that existed in the baseline and are no longer present."
+        },
+        "decision": {
+          "enum": ["ACCEPTED", "REJECTED"],
+          "description": "REPAIR candidate decision. A rejected candidate is still a successful job."
+        }
       }
     },
     "error": {
@@ -45,14 +61,23 @@
   },
   "allOf": [
     {
-      "if": {"properties": {"job_type": {"const": "INCREMENTAL_CHECK"}}},
+      "if": {"properties": {"status": {"enum": ["FAILED", "TIMED_OUT"]}}, "required": ["status"]},
       "then": {
         "properties": {
-          "input": {
-            "required": ["base_commit", "repository", "baseline"]
-          }
+          "error": {"type": "object", "description": "Execution failure or timeout requires error."}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "SUCCEEDED"}}, "required": ["status"]},
+      "then": {
+        "required": ["output"],
+        "properties": {
+          "output": {"type": "object"},
+          "error": {"type": "null"}
         }
       }
     }
-  ]
+  ],
+  "$comment": "Findings are normal analysis results and never execution errors. CANCELLED remains a valid terminal state and is reached through POST /v1/jobs/{job_id}/cancel."
 }

@@ -1,0 +1,8 @@
+{
+  "http_status": 400,
+  "error": {
+    "code": "REQUEST_REJECTED",
+    "message": "INCREMENTAL_CHECK requires a baseline before a Job is created"
+  },
+  "provenance": "CONTRACT_EXAMPLE"
+}

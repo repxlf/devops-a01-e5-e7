@@ -9,11 +9,14 @@
       "commit": "00000000000000000000000000000000000000c0"
     },
     "build": {
-      "command": "make -j2",
+      "project_root": "/workspace/md-rd-project",
+      "build_command": "make -j2",
       "verify_command": "make test"
     },
-    "max_iterations": 3,
-    "timeout_seconds": 600
+    "limits": {
+      "max_iterations": 3,
+      "time_limit_seconds": 600
+    }
   },
   "provenance": "CONTRACT_EXAMPLE"
 }
