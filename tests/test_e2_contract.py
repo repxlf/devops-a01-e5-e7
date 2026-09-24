@@ -43,7 +43,7 @@ class E2ContractTests(unittest.TestCase):
         output = job["output"]
         self.assertTrue(output["findings"])
         self.assertTrue(output["added_findings"])
-        self.assertIsInstance(output["resolved_findings"][0], dict)
+        self.assertIsInstance(output["resolved_findings"][0], str)
 
     def test_successful_findings_are_distinct_from_execution_error(self):
         job = validate.load("examples/e2-contract/full-check-success.json")
