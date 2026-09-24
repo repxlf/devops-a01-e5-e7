@@ -6,7 +6,7 @@
 
 - Repository: `https://git.nju.edu.cn/devops-a01/devops-a01/devops-a01.git`
 - Group: `A01`
-- Paired group: `B01`（示例占位，需与实际配对组确认）
+- Paired group: `B01`（由配对仓库 `devops-final-product` 的 `b01xiugai` 分支确认；成员姓名仍待本人填写）
 
 ## 贡献记录模板
 

@@ -6,7 +6,9 @@ EChecker 不能只收到一个当前 commit。它必须知道历史依赖图来�
 
 ## Decision
 
-`INCREMENTAL_CHECK` 必须携带 `base_commit`、baseline graph URI、baseline commit 和 baseline configuration ID。服务必须拒绝缺失或不匹配的 baseline。
+`INCREMENTAL_CHECK` 必须携带 `base_commit`、当前 repository、environment、build、baseline graph URI、baseline commit 和 baseline configuration ID。服务必须拒绝缺失或不匹配的 baseline 或环境配置。
+
+`baseline.commit` 必须等于 `base_commit`，`baseline.configuration_id` 必须等于当前 `environment.configuration_id`。这些跨字段相等关系由校验代码强制。
 
 ## Consequences
 

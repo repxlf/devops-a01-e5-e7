@@ -8,6 +8,12 @@
 
 Job output 保存 artifact 元数据，文件内容通过 `artifact://` URI 引用。URI 至少包含配对组、生产 Job 和文件名。
 
+每个 artifact 还记录：
+
+- `producer_job_id`
+- `commit`
+- `configuration_id`
+
 ## Example
 
 ```text
@@ -16,4 +22,4 @@ artifact://pair-A01-B01/job-full-c0-001/actual.json
 
 ## Consequences
 
-后续实现需要提供 URI 解析器或下载接口，并记录生产任务、提交和 configuration ID。
+后续实现需要提供 URI 解析器或下载接口。当前 E2 只用固定 mock URI 映射，不代表已经部署 artifact 存储服务。
