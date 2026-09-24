@@ -116,6 +116,9 @@ class ContractHardeningTests(unittest.TestCase):
         artifact_schema = json.loads(
             (ROOT / "schemas/artifact.schema.json").read_text(encoding="utf-8")
         )
+        graph_schema = json.loads(
+            (ROOT / "schemas/dependency-graph.schema.json").read_text(encoding="utf-8")
+        )
 
         task_text = json.dumps(task_schema)
         request_text = json.dumps(request_schema)
@@ -124,6 +127,7 @@ class ContractHardeningTests(unittest.TestCase):
         self.assertIn("output", task_text)
         self.assertIn("configuration_id", request_text)
         self.assertIn("PATCH_NOTES", artifact_text)
+        self.assertIn("base_graph_id", graph_schema["properties"])
         self.assertTrue((ROOT / "schemas/report.schema.json").exists())
 
 
