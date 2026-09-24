@@ -168,9 +168,7 @@ def validate_job(value: dict[str, Any]) -> None:
             validate_artifact(require_mapping(artifact, "artifact"))
         for field in ("findings", "added_findings"):
             for finding in output.get(field, []):
-                finding_value = require_mapping(finding, field)
-                if finding_value.get("type") not in ALLOWED_FINDING_TYPES:
-                    raise ValueError("unsupported finding type")
+                validate_finding(finding, field)
         for finding_id in output.get("resolved_findings", []):
             if not isinstance(finding_id, str) or not finding_id:
                 raise ValueError("resolved_findings must contain finding IDs")
@@ -179,19 +177,34 @@ def validate_job(value: dict[str, Any]) -> None:
 
 
 ARTIFACT_FIXTURE_MAP = {
-    "md-report.json": "examples/build-checker/md-rd-report-c0.json",
-    "rd-report.json": "examples/build-checker/rd-report-c0.json",
+    "artifact://pair-A01-B01/job-full-c0-001/md-report.json": "examples/build-checker/md-rd-report-c0.json",
+    "artifact://pair-A01-B01/job-full-c0-001/rd-report.json": "examples/build-checker/rd-report-c0.json",
 }
 
 
 def load_artifact_fixture(uri: str) -> dict[str, Any]:
     if not uri.startswith("artifact://"):
         raise ValueError("artifact URI must use artifact://")
-    filename = uri.rsplit("/", 1)[-1]
-    relative = ARTIFACT_FIXTURE_MAP.get(filename)
+    relative = ARTIFACT_FIXTURE_MAP.get(uri)
     if relative is None:
         raise ValueError(f"no mock fixture mapped for artifact URI: {uri}")
     return load(relative)
+
+
+def validate_finding(value: Any, context: str) -> dict[str, Any]:
+    finding = require_mapping(value, context)
+    for field in ("finding_id", "target", "dependency", "commit", "detector"):
+        require_string(finding, field, context)
+    if finding.get("type") not in ALLOWED_FINDING_TYPES:
+        raise ValueError("unsupported finding type")
+    location = require_mapping(finding.get("location"), f"{context}.location")
+    require_string(location, "file", f"{context}.location")
+    evidence = finding.get("evidence")
+    if not isinstance(evidence, list) or not evidence or any(
+        not isinstance(item, str) or not item for item in evidence
+    ):
+        raise ValueError(f"{context}.evidence must contain at least one string")
+    return finding
 
 
 def validate_report(report: dict[str, Any]) -> dict[str, Any]:
@@ -203,9 +216,7 @@ def validate_report(report: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(findings, list):
             raise ValueError("report.findings must be an array")
         for finding in findings:
-            finding_value = require_mapping(finding, "report.finding")
-            if finding_value.get("type") not in ALLOWED_FINDING_TYPES:
-                raise ValueError("unsupported report finding type")
+            finding_value = validate_finding(finding, "report.finding")
             if report_type == "MD_REPORT" and finding_value["type"] != "MISSING":
                 raise ValueError("MD_REPORT may contain only MISSING findings")
             if report_type == "RD_REPORT" and finding_value["type"] != "REDUNDANT":

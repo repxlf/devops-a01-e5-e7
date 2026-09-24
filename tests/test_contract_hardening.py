@@ -49,6 +49,15 @@ class ContractHardeningTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate.validate_request(request)
 
+    def test_repair_rejects_unmapped_mock_report_uri(self):
+        request = validate.load("examples/repair/repair-request.json")
+        request["input"]["md_report_uri"] = (
+            "artifact://pair-A01-B01/job-other-001/md-report.json"
+        )
+
+        with self.assertRaises(ValueError):
+            validate.validate_request(request)
+
     def test_succeeded_job_requires_output_object(self):
         job = validate.load("examples/e2-contract/full-check-success.json")
         job["output"] = None
@@ -71,6 +80,13 @@ class ContractHardeningTests(unittest.TestCase):
     def test_report_rejects_repository_relative_artifact_paths(self):
         report = copy.deepcopy(validate.load("examples/e-checker/consistency-report-c1.json"))
         report["incremental_result"] = "examples/e-checker/incremental-graph-c0-c1.json"
+
+        with self.assertRaises(ValueError):
+            validate.validate_report(report)
+
+    def test_report_requires_location_and_evidence_for_findings(self):
+        report = copy.deepcopy(validate.load("examples/build-checker/md-rd-report-c0.json"))
+        report["findings"][0].pop("location")
 
         with self.assertRaises(ValueError):
             validate.validate_report(report)
