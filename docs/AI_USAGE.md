@@ -66,6 +66,7 @@ AI 辅助编码代理；具体模型名称未记录在 Git 历史中。
 - `python3 scripts/validate.py`：14 项通过。
 - `python3 scripts/run_mock_flow.py`：6 个 mock 阶段通过。
 - `python3 -m unittest discover -s tests -v`：24 项通过。
+- 标准 Draft 2020-12 独立校验：4 个请求、8 个 Job、5 个依赖图、3 个报告及 2 个 HTTP 响应样例通过。
 - `git diff --check`：通过。
 
 上述结果只证明 E2 契约、样例和 mock 数据交接自洽，不表示 BuildChecker、EChecker、DRAFT 或 MDFixer 的真实算法已经完成。
