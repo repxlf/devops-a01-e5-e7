@@ -40,6 +40,7 @@ docs/           共同文档（ADR、API_CONTRACT、END_TO_END_FLOW、BACKLOG）
 | 2026-09-22 | Tillthen | `71d3715` | 完成 A 组 E2 契约包和四类任务样例 | 契约校验与单元测试 | `feature/e2-contract` |
 | 2026-09-23 | 谢汶展（B01） | `23c0699` | 在共享仓库提出契约修订、反例和 18 项评审意见 | B01 校验脚本 9 项通过 | `devops-final-product:b01xiugai` |
 | 2026-09-24 | Tillthen | `75a5529`～`0ba9075` | 批判性吸收 B01 评审，补强 Schema、样例、跨字段校验和端到端流程 | 契约校验 14 项、单元测试 24 项、mock flow 通过 | `feature/e2-contract`，MR 待创建 |
+| 2026-09-24 | RepXlf | `cee6f08` | 将 A01 `main` 的契约权威源和三仓同步规则合入 E2 分支，补充 AI 判断与贡献追溯 | 契约校验 14 项、单元测试 24 项、mock flow 通过、`git diff --check` 通过 | `feature/e2-contract`，MR 待创建 |
 
 最终合并 SHA 与 MR 链接只能在合并后填写，不在合并前虚构。
 
