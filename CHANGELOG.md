@@ -10,3 +10,10 @@
 - 修正端到端流程，将一致性评估与 RECHECK 分开。
 
 以上 JSON、报告、响应和流程结果均为 `MOCK_FIXTURE` 或 `CONTRACT_EXAMPLE`，不代表真实工具执行结果。
+
+## 2026-09-25 — E3 A 组并行测试基线
+
+- 增加 MD/RD 最小项目以及 C0/C1/C2 连续提交快照。
+- 增加实际/声明图构造、`MISSING`/`REDUNDANT` finding 和证据字符串的可测试纯逻辑。
+- 增加 `scripts/run_lab.py`、`scripts/verify_docker.py` 和 E3 检查清单。
+- 明确区分 fixture 预期结果、dry-run 结果和 Linux 原始观察，未声称真实课程项目实验已经通过。

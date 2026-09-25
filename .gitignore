@@ -10,3 +10,7 @@ build/
 .superpowers/
 .idea/
 .vscode/
+work/*
+!work/.gitkeep
+evidence/linux-verified/*
+!evidence/linux-verified/.gitkeep

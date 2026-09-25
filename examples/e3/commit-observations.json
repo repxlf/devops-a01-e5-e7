@@ -1,0 +1,6 @@
+{
+  "provenance": "MOCK_FIXTURE",
+  "C0": {"expected_clean_stdout": "10", "expected_incremental_stdout": "10", "findings": []},
+  "C1": {"expected_clean_stdout": "12", "expected_incremental_stdout": "12", "findings": [["MISSING", "main.o", "feature.h"]]},
+  "C2": {"expected_clean_stdout": "19", "expected_incremental_stdout": "12", "findings": [["MISSING", "main.o", "feature.h"]]}
+}

@@ -34,3 +34,33 @@ ChatGPT / Codex
 ### 验证
 
 当前通过 JSON 样例、校验脚本和 mock flow 验证结构与数据交接。真实算法接入后，需要补充实验结果和代码版本。
+
+## Record 002：E3 A 组实验基线
+
+### 工具/模型
+
+ChatGPT / Codex
+
+### 任务
+
+根据 `E3_并行测试基线_20260910.pptx` 为 A 组建立 MD/RD 项目、C0/C1/C2 快照、命令观察和 finding 证据框架。
+
+### AI 建议
+
+- 用最小 C/Make 项目明确区分实际 include 与 Makefile prerequisites。
+- 用 C0/C1/C2 保留普通增量构建与 clean build 的对比位置。
+- 保存环境、命令、退出码、输出和耗时，并把预期值与实际值分开。
+
+### 人工判断
+
+采纳：
+
+- 将 E3 A 组范围限定为 PPT 中的 MD/RD、BuildChecker 观察和连续提交实验。
+- 将静态样例和 dry-run 统一标为 `MOCK_FIXTURE`。
+- 只预留真实 Linux/BuildChecker 适配点，不虚构课程项目 SHA、Docker ID 或 Linux 结果。
+
+未在本次任务中实现：
+
+- B 组 DRAFT、MDFixer 和 Docker 镜像构建。
+- 特定真实课程项目的依赖采集算法。
+- 未获得远端新 main 时的 B 组分支修改。
