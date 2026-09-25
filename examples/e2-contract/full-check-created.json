@@ -1,0 +1,8 @@
+{
+  "http_status": 202,
+  "job": {
+    "job_id": "job-full-c0-001",
+    "status": "QUEUED"
+  },
+  "provenance": "CONTRACT_EXAMPLE"
+}

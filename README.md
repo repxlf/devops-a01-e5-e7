@@ -46,7 +46,7 @@ A 组 EChecker / INCREMENTAL_CHECK
 B 组 MDFixer / REPAIR
     │  Patch、构建结果、验证结果
     ▼
-重新构建、测试和检测
+重新构建、测试和检测（RECHECK）
     │
     ▼
 接受或拒绝补丁
@@ -108,14 +108,14 @@ EChecker 使用 BuildChecker 产生的历史依赖图作为 baseline，对后续
 ## 3. 目录说明
 
 ```text
-schemas/       统一 Job、依赖图、finding 和 artifact 结构
+schemas/       统一 Job、请求、报告、依赖图、finding 和 artifact 结构
 src/a_group/   A 组后续实现的代码入口
 services/      A/B 四个服务角色的边界说明
 fixtures/      C0/C1/C2、依赖图、报告和证据的 mock 数据
 examples/      从 E2 契约到端到端流程的样例
 tests/         契约、BuildChecker、EChecker、流程和评估测试
 docs/          架构、接口、ADR、Backlog、AI 使用和 Git 追溯
-scripts/       样例校验和 mock 流程运行入口
+scripts/       样例、报告校验和 mock 流程运行入口
 ```
 
 代码实现边界如下：
@@ -149,13 +149,14 @@ python scripts/validate.py
 
 校验脚本会检查：
 
-- 合法 FULL_CHECK 请求和响应
-- 合法 INCREMENTAL_CHECK 请求
-- 非法 `job_type`
-- 缺失 baseline
+- 四类任务的合法请求和响应
+- 成功 Job 必须有 output
+- 缺失 baseline、环境、目标文件或报告同源关系
 - baseline commit/configuration 不匹配
-- artifact URI
-- 系统错误与 findings 的区分
+- artifact commit/configuration 元数据和 URI
+- MD/RD/一致性报告结构
+- 202 创建响应和 400 请求拒绝响应
+- 系统错误、findings、REPAIR 候选拒绝的区分
 - 端到端场景的阶段链路
 
 ### 运行 mock 流程
@@ -167,6 +168,8 @@ python scripts/run_mock_flow.py
 mock 流程只演示数据交接和阶段编排：
 
 ```text
+C0 DRAFT
+    ↓
 C0 FULL_CHECK
     ↓
 生成 baseline actual graph
@@ -176,6 +179,8 @@ C1 INCREMENTAL_CHECK
 计算新增和消除 findings
     ↓
 与 C1 FULL_CHECK 结果比较
+    ↓
+RECHECK 决定是否接受补丁
 ```
 
 它不执行真实编译，不采集真实依赖图，也不实现依赖分析算法。
@@ -211,7 +216,9 @@ E2
 └─ 比较增量与全量的一致性和耗时
 ```
 
-E2 的契约位于 `schemas/`、`examples/e2-contract/` 和 `docs/API_CONTRACT.md`。后续实现应消费这些契约，而不是重新发明一套输入输出格式。
+E2 的契约位于 `schemas/`、`examples/e2-contract/`、`examples/build-checker/` 和 `docs/API_CONTRACT.md`。其中 `report.schema.json`、`job-created-response.schema.json` 和 `request-rejected-response.schema.json` 分别约束报告、异步创建响应和请求拒绝响应。后续实现应消费这些契约，而不是重新发明一套输入输出格式。
+
+E2 要求到文件和验证命令的逐项对应关系见 `docs/E2_CHECKLIST.md`。
 
 ## 6. 接入真实实现的顺序
 

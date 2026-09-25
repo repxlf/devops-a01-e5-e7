@@ -10,7 +10,17 @@
   "input": {
     "base_commit": "00000000000000000000000000000000000000c0",
     "repository": {
+      "url": "https://example.invalid/devops-a01/md-rd-project.git",
       "commit": "00000000000000000000000000000000000000c1"
+    },
+    "environment": {
+      "image": "pair-a01-b01/demo-build:mock-1",
+      "configuration_id": "cc-MODE0"
+    },
+    "build": {
+      "project_root": "/workspace/md-rd-project",
+      "clean_command": "make clean",
+      "build_command": "make -j2"
     },
     "baseline": {
       "actual_graph_uri": "artifact://pair-A01-B01/job-full-c0-001/actual.json",
@@ -25,7 +35,21 @@
         "type": "ACTUAL_GRAPH",
         "uri": "artifact://pair-A01-B01/job-incremental-c0-c1-001/actual.json",
         "media_type": "application/json",
-        "producer_job_id": "job-incremental-c0-c1-001"
+        "producer_job_id": "job-incremental-c0-c1-001",
+        "commit": "00000000000000000000000000000000000000c1",
+        "configuration_id": "cc-MODE0"
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "finding-md-c1-001",
+        "type": "MISSING",
+        "target": "util.o",
+        "dependency": "util.h",
+        "commit": "00000000000000000000000000000000000000c1",
+        "detector": "MOCK_FIXTURE",
+        "location": {"file": "Makefile"},
+        "evidence": ["actual-c1:util.o->util.h", "declared-c1:missing-edge"]
       }
     ],
     "added_findings": [
@@ -35,13 +59,14 @@
         "target": "util.o",
         "dependency": "util.h",
         "commit": "00000000000000000000000000000000000000c1",
-        "detector": "MOCK_FIXTURE"
+        "detector": "MOCK_FIXTURE",
+        "location": {"file": "Makefile"},
+        "evidence": ["actual-c1:util.o->util.h", "declared-c1:missing-edge"]
       }
     ],
     "resolved_findings": [
       "finding-md-c0-001"
-    ],
-    "findings": []
+    ]
   },
   "error": null,
   "provenance": "MOCK_FIXTURE"

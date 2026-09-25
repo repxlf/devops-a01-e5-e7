@@ -34,3 +34,39 @@ ChatGPT / Codex
 ### 验证
 
 当前通过 JSON 样例、校验脚本和 mock flow 验证结构与数据交接。真实算法接入后，需要补充实验结果和代码版本。
+
+## Record 002：B01 契约评审与 E2 加固
+
+### 工具/模型
+
+AI 辅助编码代理；具体模型名称未记录在 Git 历史中。
+
+### 任务
+
+审阅 B01 在共享仓库 `devops-final-product` 的 `b01xiugai` 分支提交 `23c0699`，批判性吸收其中对 A01 E2 契约、反例和端到端流程的修改意见。
+
+### AI 建议
+
+- 强制成功 Job 携带 `output`，补齐四类请求的必要输入。
+- 为 Artifact 增加 commit/configuration 元数据。
+- 校验增量 baseline 与 REPAIR 报告的跨字段同源关系。
+- 增加创建成功、请求拒绝和 REPAIR 候选拒绝样例。
+- 将一致性评估与修复后的 RECHECK 分开。
+
+### 人工判断
+
+采纳 B01 对成功输出、Artifact 元数据、跨字段校验、反例和流程职责的意见；保留 `CANCELLED` 并定义取消接口，将声明风格说明建模为 `PATCH_NOTES`。
+
+没有逐字照搬 B01 修改稿：MD 报告混入 `REDUNDANT` 被视为接线错误并拒绝，而不是静默忽略。E2 仍是契约和 mock 阶段，不扩展为真实服务或真实检测算法；契约允许在 E3 开发过程中继续版本化演进。
+
+### 关联与验证
+
+- B01 评审来源：`devops-final-product@23c0699`。
+- A01 实施提交：`75a5529`～`0ba9075`。
+- `python3 scripts/validate.py`：14 项通过。
+- `python3 scripts/run_mock_flow.py`：6 个 mock 阶段通过。
+- `python3 -m unittest discover -s tests -v`：24 项通过。
+- 标准 Draft 2020-12 独立校验：4 个请求、8 个 Job、5 个依赖图、3 个报告及 2 个 HTTP 响应样例通过。
+- `git diff --check`：通过。
+
+上述结果只证明 E2 契约、样例和 mock 数据交接自洽，不表示 BuildChecker、EChecker、DRAFT 或 MDFixer 的真实算法已经完成。

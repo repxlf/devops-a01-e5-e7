@@ -9,6 +9,10 @@
       "commit": "00000000000000000000000000000000000000c0"
     },
     "md_report_uri": "artifact://pair-A01-B01/job-full-c0-001/md-report.json",
+    "environment": {
+      "image": "pair-a01-b01/demo-build:mock-1",
+      "configuration_id": "cc-MODE0"
+    },
     "target_file": "Makefile",
     "build_command": "make -j2",
     "verify_command": "make test"

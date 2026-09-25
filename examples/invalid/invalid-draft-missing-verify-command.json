@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "trace-invalid-b01-001",
+  "job_type": "DRAFT",
+  "idempotency_key": "idem-invalid-b01-001",
+  "input": {
+    "repository": {
+      "url": "https://example.invalid/devops-a01/md-rd-project.git",
+      "commit": "00000000000000000000000000000000000000c0"
+    },
+    "build": {
+      "project_root": "/workspace/md-rd-project",
+      "build_command": "make"
+    },
+    "limits": {
+      "max_iterations": 5,
+      "time_limit_seconds": 600
+    }
+  },
+  "provenance": "CONTRACT_EXAMPLE"
+}

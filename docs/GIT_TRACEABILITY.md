@@ -13,6 +13,8 @@
 - Repository: `https://git.nju.edu.cn/devops-a01/devops-a01/devops-a01.git`
 - Group: `A01`
 - Paired group: `B01`
+- Shared contract review: `devops-final-product` 分支 `b01xiugai`，提交 `23c0699`
+- B01 work repository: `https://git.nju.edu.cn/devops-a01/devops-b01/dev.git`
 
 ## 契约同步规则
 
@@ -33,10 +35,14 @@ docs/           共同文档（ADR、API_CONTRACT、END_TO_END_FLOW、BACKLOG）
 
 | 日期 | 作者 | Commit SHA | 变更 | 验证 | Issue/PR |
 |---|---|---|---|---|---|
-| 2026-09-22 | 李然 | `98b9676` | A 组仓库框架（schema、样例、实现骨架） | `python scripts/validate.py`（7 项通过） | — |
-| | | | | | |
+| 2026-09-20 | Tillthen | `98b9676` | A 组仓库框架（Schema、样例和实现骨架） | 初始校验脚本与单元测试 | 初始提交 |
+| 2026-09-22 | 李然 / Ran Li | `4509706`、`d93a4d1`、`05fafc6` | 明确三仓关系、A01 契约权威源及同步规则 | 文档审阅 | 已合入 `main` |
+| 2026-09-22 | Tillthen | `71d3715` | 完成 A 组 E2 契约包和四类任务样例 | 契约校验与单元测试 | `feature/e2-contract` |
+| 2026-09-23 | 谢汶展（B01） | `23c0699` | 在共享仓库提出契约修订、反例和 18 项评审意见 | B01 校验脚本 9 项通过 | `devops-final-product:b01xiugai` |
+| 2026-09-24 | Tillthen | `75a5529`～`0ba9075` | 批判性吸收 B01 评审，补强 Schema、样例、跨字段校验和端到端流程 | 契约校验 14 项、单元测试 24 项、mock flow 通过 | A01 MR：`feature/e2-contract` → `main` |
+| 2026-09-24 | RepXlf | `cee6f08`、`81589f1` | 将 A01 `main` 的权威源与三仓同步规则合入 E2 分支，恢复 B01 已接受的增量图 `base_graph_id` 契约 | 契约校验 14 项、单元测试 24 项、Draft 2020-12 正例校验、mock flow 和 `git diff --check` 通过 | A01 MR：`feature/e2-contract` → `main` |
 
-> 新记录请追加到上表。Commit SHA 用 `git log --oneline -1` 获取。
+最终合并 SHA 与 MR 链接只能在合并后填写，不在合并前虚构。
 
 ## 规则
 

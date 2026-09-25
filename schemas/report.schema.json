@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://git.nju.edu.cn/devops-a01/devops-a01/devops-a01/-/raw/main/schemas/report.schema.json",
+  "title": "DevOps A01 report artifact",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["report_type", "report_id", "commit", "configuration_id", "findings", "provenance"],
+      "properties": {
+        "report_type": {"enum": ["MD_REPORT", "RD_REPORT"]},
+        "report_id": {"type": "string", "minLength": 1},
+        "commit": {"type": "string", "minLength": 1},
+        "configuration_id": {"type": "string", "minLength": 1},
+        "findings": {"type": "array", "items": {"$ref": "finding.schema.json"}},
+        "provenance": {"enum": ["MOCK_FIXTURE", "CONTRACT_EXAMPLE", "REAL_TOOL_OUTPUT"]}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "report_type",
+        "comparison_id",
+        "base_commit",
+        "current_commit",
+        "incremental_result",
+        "full_result",
+        "graph_equal",
+        "findings_equal",
+        "incremental_duration_ms",
+        "full_duration_ms",
+        "provenance"
+      ],
+      "properties": {
+        "report_type": {"const": "CONSISTENCY_REPORT"},
+        "comparison_id": {"type": "string", "minLength": 1},
+        "base_commit": {"type": "string", "minLength": 1},
+        "current_commit": {"type": "string", "minLength": 1},
+        "incremental_result": {"type": "string", "pattern": "^artifact://"},
+        "full_result": {"type": "string", "pattern": "^artifact://"},
+        "graph_equal": {"type": "boolean"},
+        "findings_equal": {"type": "boolean"},
+        "incremental_duration_ms": {"type": "integer", "minimum": 0},
+        "full_duration_ms": {"type": "integer", "minimum": 0},
+        "provenance": {"enum": ["MOCK_FIXTURE", "CONTRACT_EXAMPLE", "REAL_TOOL_OUTPUT"]}
+      }
+    }
+  ]
+}

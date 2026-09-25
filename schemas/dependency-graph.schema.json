@@ -8,6 +8,11 @@
   "properties": {
     "provenance": {"enum": ["MOCK_FIXTURE", "CONTRACT_EXAMPLE", "REAL_TOOL_OUTPUT"]},
     "graph_id": {"type": "string"},
+    "base_graph_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "本图所基于的基线图 graph_id；仅增量检测产出的图需要填写。"
+    },
     "graph_kind": {"enum": ["ACTUAL", "DECLARED"]},
     "commit": {"type": "string"},
     "configuration_id": {"type": "string"},
@@ -19,8 +24,8 @@
         "additionalProperties": false,
         "required": ["source", "target"],
         "properties": {
-          "source": {"type": "string"},
-          "target": {"type": "string"},
+          "source": {"type": "string", "description": "依赖边的起点：构建目标。"},
+          "target": {"type": "string", "description": "依赖边的终点：目标所依赖的文件。"},
           "evidence": {"type": "string"}
         }
       }

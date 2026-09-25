@@ -1,0 +1,11 @@
+{
+  "recheck_id": "recheck-repair-c0-001",
+  "source_repair_job_id": "job-repair-c0-001",
+  "decision": "ACCEPTED",
+  "checks": {
+    "build": "PASSED",
+    "verification": "PASSED",
+    "dependency_recheck": "PASSED"
+  },
+  "provenance": "MOCK_FIXTURE"
+}

@@ -7,7 +7,7 @@
       "name": "DRAFT",
       "owner": "B01",
       "commit": "00000000000000000000000000000000000000c0",
-      "input": "examples/e2-contract/full-check-request.json"
+      "input": "examples/draft/draft-request.json"
     },
     {
       "name": "FULL_CHECK",
@@ -27,9 +27,14 @@
       "job": "examples/repair/repair-result.json"
     },
     {
+      "name": "CONSISTENCY_EVALUATION",
+      "owner": "A01",
+      "result": "examples/e-checker/consistency-report-c1.json"
+    },
+    {
       "name": "RECHECK",
       "owner": "A01+B01",
-      "result": "examples/e-checker/consistency-report-c1.json"
+      "result": "examples/end-to-end/recheck-result.json"
     }
   ]
 }

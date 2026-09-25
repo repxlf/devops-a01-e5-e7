@@ -1,9 +1,10 @@
 {
+  "report_type": "CONSISTENCY_REPORT",
   "comparison_id": "compare-c1-incremental-vs-full",
   "base_commit": "00000000000000000000000000000000000000c0",
   "current_commit": "00000000000000000000000000000000000000c1",
-  "incremental_result": "examples/e-checker/incremental-graph-c0-c1.json",
-  "full_result": "examples/build-checker/actual-graph-c1.json",
+  "incremental_result": "artifact://pair-A01-B01/job-incremental-c0-c1-001/actual.json",
+  "full_result": "artifact://pair-A01-B01/job-full-c1-001/actual.json",
   "graph_equal": true,
   "findings_equal": true,
   "incremental_duration_ms": 740,

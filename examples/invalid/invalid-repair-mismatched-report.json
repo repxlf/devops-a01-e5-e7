@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "trace-invalid-b01-003",
+  "job_type": "REPAIR",
+  "idempotency_key": "idem-invalid-b01-003",
+  "input": {
+    "repository": {
+      "url": "https://example.invalid/devops-a01/md-rd-project.git",
+      "commit": "00000000000000000000000000000000000000c1"
+    },
+    "md_report_uri": "artifact://pair-A01-B01/job-full-c0-001/md-report.json",
+    "environment": {
+      "image": "pair-a01-b01/demo-build:mock-1",
+      "configuration_id": "cc-MODE0"
+    },
+    "target_file": "Makefile",
+    "build_command": "make -j2",
+    "verify_command": "make test"
+  },
+  "provenance": "CONTRACT_EXAMPLE"
+}

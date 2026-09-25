@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "job_id": "job-draft-c0-001",
+  "trace_id": "trace-a01-demo-draft-001",
+  "job_type": "DRAFT",
+  "status": "QUEUED",
+  "input": {},
+  "output": null,
+  "error": null,
+  "provenance": "CONTRACT_EXAMPLE"
+}

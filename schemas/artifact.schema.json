@@ -4,14 +4,32 @@
   "title": "DevOps A01 artifact reference",
   "type": "object",
   "additionalProperties": false,
-  "required": ["artifact_id", "type", "uri", "media_type", "producer_job_id"],
+  "required": ["artifact_id", "type", "uri", "media_type", "producer_job_id", "commit", "configuration_id"],
   "properties": {
     "provenance": {"enum": ["MOCK_FIXTURE", "CONTRACT_EXAMPLE", "REAL_TOOL_OUTPUT"]},
     "artifact_id": {"type": "string", "minLength": 1},
-    "type": {"enum": ["ACTUAL_GRAPH", "DECLARED_GRAPH", "ERROR_REPORT", "MD_REPORT", "RD_REPORT", "PATCH", "BUILD_LOG", "TEST_REPORT"]},
+    "type": {
+      "enum": [
+        "ACTUAL_GRAPH",
+        "DECLARED_GRAPH",
+        "ERROR_REPORT",
+        "MD_REPORT",
+        "RD_REPORT",
+        "PATCH",
+        "PATCH_NOTES",
+        "BUILD_LOG",
+        "TEST_REPORT",
+        "DOCKERFILE",
+        "IMAGE_REF",
+        "DRAFT_LOG"
+      ]
+    },
     "uri": {"type": "string", "pattern": "^artifact://"},
     "media_type": {"type": "string", "minLength": 1},
     "producer_job_id": {"type": "string", "minLength": 1},
+    "commit": {"type": "string", "minLength": 1},
+    "configuration_id": {"type": "string", "minLength": 1},
     "sha256": {"type": "string"}
-  }
+  },
+  "$comment": "Artifact metadata identifies who produced the artifact, which commit it represents, and which configuration produced it. ERROR_REPORT is for system-error artifacts; findings remain in MD/RD reports or output.findings."
 }

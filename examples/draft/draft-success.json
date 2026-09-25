@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "job_id": "job-draft-c0-001",
+  "trace_id": "trace-a01-demo-draft-001",
+  "job_type": "DRAFT",
+  "status": "SUCCEEDED",
+  "input": {
+    "repository": {
+      "url": "https://example.invalid/devops-a01/md-rd-project.git",
+      "commit": "00000000000000000000000000000000000000c0"
+    },
+    "build": {
+      "project_root": "/workspace/md-rd-project",
+      "build_command": "make -j2",
+      "verify_command": "make test"
+    },
+    "limits": {
+      "max_iterations": 3,
+      "time_limit_seconds": 600
+    }
+  },
+  "output": {
+    "artifacts": [
+      {
+        "artifact_id": "image-c0-001",
+        "type": "IMAGE_REF",
+        "uri": "artifact://pair-A01-B01/job-draft-c0-001/image-ref.txt",
+        "media_type": "text/plain",
+        "producer_job_id": "job-draft-c0-001",
+        "commit": "00000000000000000000000000000000000000c0",
+        "configuration_id": "cc-MODE0"
+      },
+      {
+        "artifact_id": "draft-log-c0-001",
+        "type": "DRAFT_LOG",
+        "uri": "artifact://pair-A01-B01/job-draft-c0-001/rounds.json",
+        "media_type": "application/json",
+        "producer_job_id": "job-draft-c0-001",
+        "commit": "00000000000000000000000000000000000000c0",
+        "configuration_id": "cc-MODE0"
+      },
+      {
+        "artifact_id": "build-log-draft-c0-001",
+        "type": "BUILD_LOG",
+        "uri": "artifact://pair-A01-B01/job-draft-c0-001/final-build.log",
+        "media_type": "text/plain",
+        "producer_job_id": "job-draft-c0-001",
+        "commit": "00000000000000000000000000000000000000c0",
+        "configuration_id": "cc-MODE0"
+      },
+      {
+        "artifact_id": "test-report-draft-c0-001",
+        "type": "TEST_REPORT",
+        "uri": "artifact://pair-A01-B01/job-draft-c0-001/final-verify.json",
+        "media_type": "application/json",
+        "producer_job_id": "job-draft-c0-001",
+        "commit": "00000000000000000000000000000000000000c0",
+        "configuration_id": "cc-MODE0"
+      }
+    ]
+  },
+  "error": null,
+  "provenance": "MOCK_FIXTURE"
+}

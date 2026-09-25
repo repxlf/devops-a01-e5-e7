@@ -15,14 +15,71 @@
   },
   "allOf": [
     {
-      "if": {"properties": {"job_type": {"const": "INCREMENTAL_CHECK"}}},
+      "if": {"properties": {"job_type": {"const": "DRAFT"}}, "required": ["job_type"]},
       "then": {
         "properties": {
           "input": {
-            "required": ["base_commit", "repository", "baseline"]
+            "required": ["repository", "build", "limits"],
+            "properties": {
+              "build": {"type": "object", "required": ["build_command", "verify_command"]},
+              "limits": {"type": "object", "required": ["max_iterations"]}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"job_type": {"const": "FULL_CHECK"}}, "required": ["job_type"]},
+      "then": {
+        "properties": {
+          "input": {
+            "required": ["repository", "environment", "build"],
+            "properties": {
+              "environment": {"type": "object", "required": ["image", "configuration_id"]},
+              "build": {"type": "object", "required": ["project_root", "clean_command", "build_command"]}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"job_type": {"const": "INCREMENTAL_CHECK"}}, "required": ["job_type"]},
+      "then": {
+        "properties": {
+          "input": {
+            "required": ["base_commit", "repository", "environment", "build", "baseline"],
+            "properties": {
+              "environment": {"type": "object", "required": ["image", "configuration_id"]},
+              "build": {"type": "object", "required": ["project_root", "clean_command", "build_command"]},
+              "baseline": {
+                "type": "object",
+                "required": ["actual_graph_uri", "commit", "configuration_id"],
+                "description": "ADR-004 requires baseline commit and configuration to match the current request."
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"job_type": {"const": "REPAIR"}}, "required": ["job_type"]},
+      "then": {
+        "properties": {
+          "input": {
+            "required": ["repository", "md_report_uri", "environment", "target_file", "build_command", "verify_command"],
+            "properties": {
+              "md_report_uri": {
+                "type": "string",
+                "pattern": "^artifact://",
+                "description": "MDFixer consumes only the MISSING findings in this MD report. A REDUNDANT entry is a contract error and must be rejected."
+              },
+              "environment": {"type": "object", "required": ["image", "configuration_id"]},
+              "target_file": {"type": "string", "minLength": 1}
+            }
           }
         }
       }
     }
-  ]
+  ],
+  "$comment": "Cross-field rules must be enforced by code: baseline.commit == input.base_commit; baseline.configuration_id == input.environment.configuration_id; and the REPAIR MD report commit/configuration must match the request. Idempotency semantics: same key and same request returns the original job with 202; same key and a different request returns 409."
 }
