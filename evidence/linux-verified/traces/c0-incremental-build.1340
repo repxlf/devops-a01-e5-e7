@@ -1,0 +1,273 @@
+execve("/usr/bin/ld", ["/usr/bin/ld", "-plugin", "/usr/lib/gcc/x86_64-linux-gnu/11"..., "-plugin-opt=/usr/lib/gcc/x86_64-"..., "-plugin-opt=-fresolution=/tmp/cc"..., "-plugin-opt=-pass-through=-lgcc", "-plugin-opt=-pass-through=-lgcc_"..., "-plugin-opt=-pass-through=-lc", "-plugin-opt=-pass-through=-lgcc", "-plugin-opt=-pass-through=-lgcc_"..., "--build-id", "--eh-frame-hdr", "-m", "elf_x86_64", "--hash-style=gnu", "--as-needed", "-dynamic-linker", "/lib64/ld-linux-x86-64.so.2", "-pie", "-z", "now", "-z", "relro", "-o", "app", "/usr/lib/gcc/x86_64-linux-gnu/11"..., "/usr/lib/gcc/x86_64-linux-gnu/11"..., "/usr/lib/gcc/x86_64-linux-gnu/11"..., "-L/usr/lib/gcc/x86_64-linux-gnu/"..., "-L/usr/lib/gcc/x86_64-linux-gnu/"..., "-L/usr/lib/gcc/x86_64-linux-gnu/"..., "-L/lib/x86_64-linux-gnu", ...], 0x7ffd312d3fe0 /* 26 vars */) = 0
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=68851, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libbfd-2.38-system.so", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1535032, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libctf.so.0", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=228576, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libz.so.1", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=108936, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2996, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=48, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27002, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=353616, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=89120, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/share/locale/C.UTF-8/LC_MESSAGES/ld.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/C.utf8/LC_MESSAGES/ld.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/C/LC_MESSAGES/ld.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale-langpack/C.UTF-8/LC_MESSAGES/ld.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale-langpack/C.utf8/LC_MESSAGES/ld.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale-langpack/C/LC_MESSAGES/ld.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+getcwd("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits", 1024) = 89
+readlink("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/app", 0x7fff78482610, 1023) = -1 ENOENT (No such file or directory)
+readlink("/usr", 0x7fff78482610, 1023)  = -1 EINVAL (Invalid argument)
+readlink("/usr/lib", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu/11", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+faccessat2(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/", F_OK, AT_EACCESS) = 0
+readlink("/usr/lib/x86_64-linux-gnu", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/x86_64-linux-gnu/Scrt1.o", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr", 0x7fff78482610, 1023)  = -1 EINVAL (Invalid argument)
+readlink("/usr/lib", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu/11", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+faccessat2(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/", F_OK, AT_EACCESS) = 0
+readlink("/usr/lib/x86_64-linux-gnu", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/x86_64-linux-gnu/crti.o", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr", 0x7fff78482610, 1023)  = -1 EINVAL (Invalid argument)
+readlink("/usr/lib", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu/11", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+getcwd("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits", 1024) = 89
+readlink("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/main.o", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+getcwd("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits", 1024) = 89
+readlink("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/-lgcc", 0x7fff78482610, 1023) = -1 ENOENT (No such file or directory)
+getcwd("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits", 1024) = 89
+readlink("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/-lgcc_s", 0x7fff78482610, 1023) = -1 ENOENT (No such file or directory)
+getcwd("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits", 1024) = 89
+readlink("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/-lc", 0x7fff78482610, 1023) = -1 ENOENT (No such file or directory)
+getcwd("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits", 1024) = 89
+readlink("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/-lgcc", 0x7fff78482610, 1023) = -1 ENOENT (No such file or directory)
+getcwd("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits", 1024) = 89
+readlink("/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/-lgcc_s", 0x7fff78482610, 1023) = -1 ENOENT (No such file or directory)
+readlink("/usr", 0x7fff78482610, 1023)  = -1 EINVAL (Invalid argument)
+readlink("/usr/lib", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu/11", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr", 0x7fff78482610, 1023)  = -1 EINVAL (Invalid argument)
+readlink("/usr/lib", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/gcc/x86_64-linux-gnu/11", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+faccessat2(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/", F_OK, AT_EACCESS) = 0
+readlink("/usr/lib/x86_64-linux-gnu", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+readlink("/usr/lib/x86_64-linux-gnu/crtn.o", 0x7fff78482610, 1023) = -1 EINVAL (Invalid argument)
+newfstatat(AT_FDCWD, "app", 0x7fff78483de0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "app", O_RDWR|O_CREAT|O_TRUNC, 0666) = 3
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o", {st_mode=S_IFREG|0644, st_size=1656, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o", O_RDONLY) = 4
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=1656, ...}, AT_EMPTY_PATH) = 0
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=1656, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o", O_RDONLY) = 5
+newfstatat(5, "", {st_mode=S_IFREG|0644, st_size=1656, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o", {st_mode=S_IFREG|0644, st_size=1192, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o", O_RDONLY) = 5
+newfstatat(5, "", {st_mode=S_IFREG|0644, st_size=1192, ...}, AT_EMPTY_PATH) = 0
+newfstatat(5, "", {st_mode=S_IFREG|0644, st_size=1192, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o", O_RDONLY) = 6
+newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=1192, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o", {st_mode=S_IFREG|0644, st_size=2752, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o", O_RDONLY) = 6
+newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=2752, ...}, AT_EMPTY_PATH) = 0
+newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=2752, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o", O_RDONLY) = 7
+newfstatat(7, "", {st_mode=S_IFREG|0644, st_size=2752, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "main.o", {st_mode=S_IFREG|0777, st_size=1504, ...}, 0) = 0
+openat(AT_FDCWD, "main.o", O_RDONLY)    = 7
+newfstatat(7, "", {st_mode=S_IFREG|0777, st_size=1504, ...}, AT_EMPTY_PATH) = 0
+newfstatat(7, "", {st_mode=S_IFREG|0777, st_size=1504, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "main.o", O_RDONLY)    = 8
+newfstatat(8, "", {st_mode=S_IFREG|0777, st_size=1504, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.so", 0x7fff78483c10, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.a", {st_mode=S_IFREG|0644, st_size=3001414, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.a", O_RDONLY) = 8
+newfstatat(8, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(8, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so", {st_mode=S_IFREG|0644, st_size=132, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so", O_RDONLY) = 9
+newfstatat(9, "", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_EMPTY_PATH) = 0
+newfstatat(9, "", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so", O_RDONLY) = 10
+newfstatat(10, "", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so", O_RDONLY) = 10
+newfstatat(10, "", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so", O_RDONLY) = 9
+newfstatat(9, "", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so.1", 0x7fff78483c40, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so.1", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "libgcc_s.so.1", 0x7fff78483bf0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "libgcc_s.so.1", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so.1", 0x7fff78483bf0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so.1", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libgcc_s.so.1", {st_mode=S_IFREG|0644, st_size=125488, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY) = 9
+newfstatat(9, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
+newfstatat(9, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY) = 10
+newfstatat(10, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.so", 0x7fff78483ba0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.a", {st_mode=S_IFREG|0644, st_size=3001414, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.a", O_RDONLY) = 10
+newfstatat(10, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(10, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libc.so", 0x7fff78483c10, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libc.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libc.a", 0x7fff78483c50, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libc.a", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libc.so", {st_mode=S_IFREG|0644, st_size=283, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libc.so", O_RDONLY) = 11
+newfstatat(11, "", {st_mode=S_IFREG|0644, st_size=283, ...}, AT_EMPTY_PATH) = 0
+newfstatat(11, "", {st_mode=S_IFREG|0644, st_size=283, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libc.so", O_RDONLY) = 12
+newfstatat(12, "", {st_mode=S_IFREG|0644, st_size=283, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libc.so", O_RDONLY) = 12
+newfstatat(12, "", {st_mode=S_IFREG|0644, st_size=283, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libc.so", O_RDONLY) = 11
+newfstatat(11, "", {st_mode=S_IFREG|0644, st_size=283, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", {st_mode=S_IFREG|0755, st_size=2220400, ...}, 0) = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY) = 11
+newfstatat(11, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+newfstatat(11, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY) = 12
+newfstatat(12, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/libc_nonshared.a", {st_mode=S_IFREG|0644, st_size=5594, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/libc_nonshared.a", O_RDONLY) = 12
+newfstatat(12, "", {st_mode=S_IFREG|0644, st_size=5594, ...}, AT_EMPTY_PATH) = 0
+newfstatat(12, "", {st_mode=S_IFREG|0644, st_size=5594, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/lib64/ld-linux-x86-64.so.2", {st_mode=S_IFREG|0755, st_size=240936, ...}, 0) = 0
+openat(AT_FDCWD, "/lib64/ld-linux-x86-64.so.2", O_RDONLY) = 13
+newfstatat(13, "", {st_mode=S_IFREG|0755, st_size=240936, ...}, AT_EMPTY_PATH) = 0
+newfstatat(13, "", {st_mode=S_IFREG|0755, st_size=240936, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/lib64/ld-linux-x86-64.so.2", O_RDONLY) = 14
+newfstatat(14, "", {st_mode=S_IFREG|0755, st_size=240936, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.so", 0x7fff78483c10, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.a", {st_mode=S_IFREG|0644, st_size=3001414, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.a", O_RDONLY) = 14
+newfstatat(14, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(14, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so", {st_mode=S_IFREG|0644, st_size=132, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so", O_RDONLY) = 15
+newfstatat(15, "", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_EMPTY_PATH) = 0
+newfstatat(15, "", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so", O_RDONLY) = 16
+newfstatat(16, "", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so", O_RDONLY) = 16
+newfstatat(16, "", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so", O_RDONLY) = 15
+newfstatat(15, "", {st_mode=S_IFREG|0644, st_size=132, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so.1", 0x7fff78483c40, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so.1", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "libgcc_s.so.1", 0x7fff78483bf0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "libgcc_s.so.1", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so.1", 0x7fff78483bf0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc_s.so.1", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libgcc_s.so.1", {st_mode=S_IFREG|0644, st_size=125488, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY) = 15
+newfstatat(15, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
+newfstatat(15, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/libgcc_s.so.1", O_RDONLY) = 16
+newfstatat(16, "", {st_mode=S_IFREG|0644, st_size=125488, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.so", 0x7fff78483ba0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.so", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.a", {st_mode=S_IFREG|0644, st_size=3001414, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/libgcc.a", O_RDONLY) = 16
+newfstatat(16, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(16, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o", {st_mode=S_IFREG|0644, st_size=1168, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o", O_RDONLY) = 17
+newfstatat(17, "", {st_mode=S_IFREG|0644, st_size=1168, ...}, AT_EMPTY_PATH) = 0
+newfstatat(17, "", {st_mode=S_IFREG|0644, st_size=1168, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o", O_RDONLY) = 18
+newfstatat(18, "", {st_mode=S_IFREG|0644, st_size=1168, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o", {st_mode=S_IFREG|0644, st_size=760, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o", O_RDONLY) = 18
+newfstatat(18, "", {st_mode=S_IFREG|0644, st_size=760, ...}, AT_EMPTY_PATH) = 0
+newfstatat(18, "", {st_mode=S_IFREG|0644, st_size=760, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o", O_RDONLY) = 19
+newfstatat(19, "", {st_mode=S_IFREG|0644, st_size=760, ...}, AT_EMPTY_PATH) = 0
+openat(AT_FDCWD, "/usr/share/locale/C.UTF-8/LC_MESSAGES/bfd.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/C.utf8/LC_MESSAGES/bfd.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/C/LC_MESSAGES/bfd.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale-langpack/C.UTF-8/LC_MESSAGES/bfd.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale-langpack/C.utf8/LC_MESSAGES/bfd.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale-langpack/C/LC_MESSAGES/bfd.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib64/ld-linux-x86-64.so.2", {st_mode=S_IFREG|0755, st_size=240936, ...}, 0) = 0
+openat(AT_FDCWD, "/lib64/ld-linux-x86-64.so.2", O_RDONLY) = 19
+newfstatat(19, "", {st_mode=S_IFREG|0755, st_size=240936, ...}, AT_EMPTY_PATH) = 0
+newfstatat(19, "", {st_mode=S_IFREG|0755, st_size=240936, ...}, AT_EMPTY_PATH) = 0
+newfstatat(19, "", {st_mode=S_IFREG|0755, st_size=240936, ...}, AT_EMPTY_PATH) = 0
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=1656, ...}, AT_EMPTY_PATH) = 0
+newfstatat(5, "", {st_mode=S_IFREG|0644, st_size=1192, ...}, AT_EMPTY_PATH) = 0
+newfstatat(6, "", {st_mode=S_IFREG|0644, st_size=2752, ...}, AT_EMPTY_PATH) = 0
+newfstatat(7, "", {st_mode=S_IFREG|0777, st_size=1504, ...}, AT_EMPTY_PATH) = 0
+newfstatat(8, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(14, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(17, "", {st_mode=S_IFREG|0644, st_size=1168, ...}, AT_EMPTY_PATH) = 0
+newfstatat(18, "", {st_mode=S_IFREG|0644, st_size=760, ...}, AT_EMPTY_PATH) = 0
+newfstatat(10, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(11, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+newfstatat(12, "", {st_mode=S_IFREG|0644, st_size=5594, ...}, AT_EMPTY_PATH) = 0
+newfstatat(16, "", {st_mode=S_IFREG|0644, st_size=3001414, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=0, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=13974, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(3, "", {st_mode=S_IFREG|0777, st_size=15960, ...}, AT_EMPTY_PATH) = 0
+newfstatat(AT_FDCWD, "app", {st_mode=S_IFREG|0777, st_size=15960, ...}, 0) = 0
+chmod("app", 0777)                      = 0
+exit_group(0)                           = ?
++++ exited with 0 +++

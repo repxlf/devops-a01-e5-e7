@@ -1,0 +1,24 @@
+{
+  "report_type": "MD_REPORT",
+  "report_id": "md_report-318511d7bbe5ea779799835f4bc40ec2b340259a",
+  "commit": "318511d7bbe5ea779799835f4bc40ec2b340259a",
+  "configuration_id": "cc-MODE0",
+  "findings": [
+    {
+      "finding_id": "missing-318511d7bbe5ea779799835f4bc40ec2b340259a-main.o-feature.h",
+      "type": "MISSING",
+      "target": "main.o",
+      "dependency": "feature.h",
+      "commit": "318511d7bbe5ea779799835f4bc40ec2b340259a",
+      "detector": "A01_E3_MD_RD",
+      "location": {
+        "artifact": "source:main.c:include:feature.h:line:3"
+      },
+      "evidence": [
+        "source:main.c:include:feature.h:line:3"
+      ],
+      "provenance": "REAL_TOOL_OUTPUT"
+    }
+  ],
+  "provenance": "REAL_TOOL_OUTPUT"
+}

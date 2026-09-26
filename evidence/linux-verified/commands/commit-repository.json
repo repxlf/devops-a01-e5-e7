@@ -1,0 +1,253 @@
+[
+  {
+    "command": [
+      "/usr/bin/git",
+      "init",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "Initialized empty Git repository in /mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/.git/\n",
+    "stderr": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint: \nhint: \tgit config --global init.defaultBranch <name>\nhint: \nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint: \nhint: \tgit branch -m <name>\n",
+    "duration_ms": 134,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "config",
+      "user.name",
+      "E3 Lab Fixture"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 26,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "config",
+      "user.email",
+      "e3-lab@example.invalid"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 23,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "add",
+      "."
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 77,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "commit",
+      "-m",
+      "C0"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "[master (root-commit) 948bd3b] C0\n 3 files changed, 23 insertions(+)\n create mode 100644 Makefile\n create mode 100644 config.h\n create mode 100644 main.c\n",
+    "stderr": "",
+    "duration_ms": 202,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "948bd3bb259a6fb0e37b2036cf8144372070098f\n",
+    "stderr": "",
+    "duration_ms": 35,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "add",
+      "."
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 66,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "commit",
+      "-m",
+      "C1"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "[master 318511d] C1\n 2 files changed, 3 insertions(+), 1 deletion(-)\n create mode 100644 feature.h\n",
+    "stderr": "",
+    "duration_ms": 303,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "318511d7bbe5ea779799835f4bc40ec2b340259a\n",
+    "stderr": "",
+    "duration_ms": 38,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "add",
+      "."
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 87,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "commit",
+      "-m",
+      "C2"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "[master 025ce39] C2\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+    "stderr": "",
+    "duration_ms": 310,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "025ce3991683af7850e9d997c844f4705eb2f312\n",
+    "stderr": "",
+    "duration_ms": 39,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "checkout",
+      "--quiet",
+      "948bd3bb259a6fb0e37b2036cf8144372070098f"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 203,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "checkout",
+      "--quiet",
+      "318511d7bbe5ea779799835f4bc40ec2b340259a"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 225,
+    "timed_out": false
+  },
+  {
+    "action": "normalize_mtime",
+    "path": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/main.c",
+    "reason": "C1 source changed; make must observe the change"
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "checkout",
+      "--quiet",
+      "025ce3991683af7850e9d997c844f4705eb2f312"
+    ],
+    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 242,
+    "timed_out": false
+  },
+  {
+    "action": "normalize_mtime",
+    "path": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/main.c",
+    "reason": "C2 changes only CFLAGS; preserve C1 object for normal make"
+  },
+  {
+    "action": "normalize_mtime",
+    "path": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/config.h",
+    "reason": "C2 changes only CFLAGS; preserve C1 object for normal make"
+  },
+  {
+    "action": "normalize_mtime",
+    "path": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/feature.h",
+    "reason": "C2 changes only CFLAGS; preserve C1 object for normal make"
+  }
+]

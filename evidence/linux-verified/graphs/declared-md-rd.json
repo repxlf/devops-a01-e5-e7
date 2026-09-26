@@ -1,0 +1,30 @@
+{
+  "graph_id": "declared-md-rd",
+  "graph_kind": "DECLARED",
+  "commit": "fixture-md-rd",
+  "configuration_id": "cc-MODE0",
+  "nodes": [
+    "app",
+    "main.c",
+    "main.o",
+    "unused.h"
+  ],
+  "edges": [
+    {
+      "source": "app",
+      "target": "main.o",
+      "evidence": "Makefile:4:app:main.o"
+    },
+    {
+      "source": "main.o",
+      "target": "main.c",
+      "evidence": "Makefile:7:main.o:main.c"
+    },
+    {
+      "source": "main.o",
+      "target": "unused.h",
+      "evidence": "Makefile:7:main.o:unused.h"
+    }
+  ],
+  "provenance": "REAL_TOOL_OUTPUT"
+}

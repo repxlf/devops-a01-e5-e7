@@ -60,9 +60,9 @@ def tool_info(name: str) -> dict[str, Any]:
     }
 
 
-def environment_record() -> dict[str, Any]:
+def environment_record(provenance: str) -> dict[str, Any]:
     return {
-        "provenance": "MOCK_FIXTURE",
+        "provenance": provenance,
         "platform": platform.platform(),
         "system": platform.system(),
         "machine": platform.machine(),
@@ -144,28 +144,29 @@ def write_graph_and_reports(
     commit: str,
     configuration_id: str,
     report_prefix: str,
+    provenance: str,
 ) -> dict[str, Any]:
-    actual = collect_dependency_graph(project, commit, configuration_id, "ACTUAL", f"actual-{report_prefix}")
-    declared = collect_dependency_graph(project, commit, configuration_id, "DECLARED", f"declared-{report_prefix}")
-    findings = detect_md_rd(actual, declared, commit)
+    actual = collect_dependency_graph(project, commit, configuration_id, "ACTUAL", f"actual-{report_prefix}", provenance)
+    declared = collect_dependency_graph(project, commit, configuration_id, "DECLARED", f"declared-{report_prefix}", provenance)
+    findings = detect_md_rd(actual, declared, commit, provenance=provenance)
     md_findings = [item for item in findings if item["type"] == "MISSING"]
     rd_findings = [item for item in findings if item["type"] == "REDUNDANT"]
     write_json(destination / "graphs" / f"actual-{report_prefix}.json", actual)
     write_json(destination / "graphs" / f"declared-{report_prefix}.json", declared)
-    write_json(destination / "reports" / f"md-report-{report_prefix}.json", build_report("MD_REPORT", commit, configuration_id, md_findings))
-    write_json(destination / "reports" / f"rd-report-{report_prefix}.json", build_report("RD_REPORT", commit, configuration_id, rd_findings))
+    write_json(destination / "reports" / f"md-report-{report_prefix}.json", build_report("MD_REPORT", commit, configuration_id, md_findings, provenance))
+    write_json(destination / "reports" / f"rd-report-{report_prefix}.json", build_report("RD_REPORT", commit, configuration_id, rd_findings, provenance))
     return {"actual": actual, "declared": declared, "findings": findings}
 
 
-def run_md_rd_experiment(run_dir: Path, dry_run: bool, trace_dir: Path | None) -> dict[str, Any]:
+def run_md_rd_experiment(run_dir: Path, dry_run: bool, trace_dir: Path | None, provenance: str) -> dict[str, Any]:
     project = run_dir / "projects" / "md-rd"
     copy_fixture(FIXTURES / "md-rd", project)
-    graph_result = write_graph_and_reports(project, run_dir, "fixture-md-rd", "cc-MODE0", "md-rd")
+    graph_result = write_graph_and_reports(project, run_dir, "fixture-md-rd", "cc-MODE0", "md-rd", provenance)
     build_result = run_build_sequence(project, "1", dry_run, trace_dir=trace_dir, trace_name="md-rd")
     return {"project": "md-rd", "graph": graph_result, "build": build_result}
 
 
-def run_commit_experiment(run_dir: Path, dry_run: bool, trace_dir: Path | None) -> dict[str, Any]:
+def run_commit_experiment(run_dir: Path, dry_run: bool, trace_dir: Path | None, provenance: str) -> dict[str, Any]:
     expected = json.loads((FIXTURES / "commits" / "expected-observations.json").read_text(encoding="utf-8"))
     commands: list[dict[str, Any]] = []
     snapshots: dict[str, str] = {}
@@ -227,7 +228,7 @@ def run_commit_experiment(run_dir: Path, dry_run: bool, trace_dir: Path | None) 
                             "path": str(path),
                             "reason": "C2 changes only CFLAGS; preserve C1 object for normal make",
                         })
-        graph_result = write_graph_and_reports(project if not dry_run else FIXTURES / "commits" / commit, run_dir, snapshots[commit], "cc-MODE0", commit.lower())
+        graph_result = write_graph_and_reports(project if not dry_run else FIXTURES / "commits" / commit, run_dir, snapshots[commit], "cc-MODE0", commit.lower(), provenance)
         active_project = project if not dry_run else FIXTURES / "commits" / commit
         if commit == "C0":
             incremental_build = run_build_sequence(active_project, expected[commit]["expected_incremental_stdout"], dry_run, trace_dir=trace_dir, trace_name=f"{commit.lower()}-incremental")
@@ -254,15 +255,19 @@ def main() -> int:
     parser.add_argument("--strace", action="store_true", help="wrap make commands with Linux strace when it is available")
     args = parser.parse_args()
 
+    # dry-run 只写计划、不执行任何工具 → MOCK_FIXTURE
+    # 真实运行由 make/cc/git 实际执行并保留观察记录（含失败）→ REAL_TOOL_OUTPUT
+    provenance = "MOCK_FIXTURE" if args.dry_run else "REAL_TOOL_OUTPUT"
+
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     run_dir = (args.output_dir or ROOT / "work" / f"e3-{timestamp}").resolve()
     run_dir.mkdir(parents=True, exist_ok=True)
     trace_dir = run_dir / "traces" if args.strace else None
-    write_json(run_dir / "environment.json", environment_record())
-    md_rd = run_md_rd_experiment(run_dir, args.dry_run, trace_dir)
-    commits = run_commit_experiment(run_dir, args.dry_run, trace_dir)
+    write_json(run_dir / "environment.json", environment_record(provenance))
+    md_rd = run_md_rd_experiment(run_dir, args.dry_run, trace_dir, provenance)
+    commits = run_commit_experiment(run_dir, args.dry_run, trace_dir, provenance)
     manifest = {
-        "provenance": "MOCK_FIXTURE",
+        "provenance": provenance,
         "experiment": "E3_A01_PARALLEL_TEST_BASELINE",
         "dry_run": args.dry_run,
         "strace_requested": args.strace,
@@ -271,10 +276,14 @@ def main() -> int:
         "source": "fixtures/e3",
         "md_rd": {"build": md_rd["build"], "finding_count": len(md_rd["graph"]["findings"])},
         "commits": commits,
-        "note": "Replace fixture source and rerun on the required Linux environment before labeling evidence as REAL_TOOL_OUTPUT.",
+        "note": (
+            "dry-run：只记录计划，未执行任何工具。"
+            if args.dry_run
+            else "真实运行：由 make/cc/git 实际执行产生，含命令退出码与输出；归档证据前请核对预期值。"
+        ),
     }
     write_json(run_dir / "observations.json", manifest)
-    print(json.dumps({"run_dir": str(run_dir), "provenance": "MOCK_FIXTURE", "dry_run": args.dry_run}, ensure_ascii=False))
+    print(json.dumps({"run_dir": str(run_dir), "provenance": provenance, "dry_run": args.dry_run}, ensure_ascii=False))
     return 0
 
 
