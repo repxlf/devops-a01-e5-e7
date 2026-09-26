@@ -70,3 +70,13 @@ AI 辅助编码代理；具体模型名称未记录在 Git 历史中。
 - `git diff --check`：通过。
 
 上述结果只证明 E2 契约、样例和 mock 数据交接自洽，不表示 BuildChecker、EChecker、DRAFT 或 MDFixer 的真实算法已经完成。
+## 条目 2026-09-26：EChecker 增量请求契约与反例拦截设计
+- 记录人：张润弛
+- 涉及模块/文件：`docs/BACKLOG.md`, `tests/test_negative_cases.py`
+- AI 提出方案：
+  - 建议当增量检测请求缺少 `baseline` 字段时，后台自动退化为全量检测（FULL_CHECK）以提高容错性。
+- 人工分析与决策：
+  - 拒绝自动退化方案：根据课程规范，增量任务必须能严格追溯基线提交与历史图（E2 / 12, E2 / 22），隐式退化会破坏下游审计追踪链。
+  - 采纳强校验规则：缺少 `baseline` 或基线配置与当前提交不匹配时，API 层面直接返回 400 拒绝请求。
+- 验证方式：
+  - 补充反例用例断言，运行 `python -m unittest discover -s tests -v` 验证全部拦截通过。
