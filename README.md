@@ -48,10 +48,11 @@ fixtures/e3/md-rd/                 MD/RD 最小 GNU Make 项目
 fixtures/e3/commits/C0/            正确初始版本
 fixtures/e3/commits/C1/            增加 feature.h include，Makefile 不变
 fixtures/e3/commits/C2/            只增加 -DMODE=7
+fixtures/e3/instructor-oracle.json  来自 E3 课件的人工预期与判断依据
 scripts/run_lab.py                 记录命令、退出码、输出和耗时
 scripts/verify_docker.py           只检查环境，不下载或启动容器
 work/<run>/                        单次运行目录，默认忽略
-evidence/linux-verified/            Linux 原始证据目录，默认忽略
+evidence/linux-verified/            已归档的 Linux 原始证据
 ```
 
 运行前先检查工具：
@@ -68,6 +69,8 @@ python scripts/run_lab.py --dry-run --output-dir work/e3-dry-run
 ```
 
 dry-run 和仓库静态样例都标记为 `MOCK_FIXTURE`。它们不能冒充 Linux 原始实验。完整映射见 `docs/E3_CHECKLIST.md`，来源标记决策见 `docs/ADR-006-e3-experiment-provenance.md`。
+
+真实运行会拒绝非 Linux 环境、缺失的必需工具和已存在的输出目录。它依次验证 MD 的旧产物行为、clean build 对照、RD 的多余重编译、C0/C1/C2 tags、编译命令变化以及预期 finding；任一检查失败都会返回非零退出码。`--strace` 被请求但不可用时也会直接失败。顶层 `commands.json` 保存完整命令与文件变更记录；未请求 trace 的成功运行标为 `PASSED_WITHOUT_TRACE`，只有带 trace 且全部通过的运行才是 `PASSED`、`verified: true`。
 
 ## 2. A 组服务边界
 

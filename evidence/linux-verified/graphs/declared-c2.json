@@ -1,8 +1,8 @@
 {
   "graph_id": "declared-c2",
   "graph_kind": "DECLARED",
-  "commit": "025ce3991683af7850e9d997c844f4705eb2f312",
-  "configuration_id": "cc-MODE0",
+  "commit": "d64348a3156817db3a3d28b4ba5703152d47d048",
+  "configuration_id": "cc-O0-MODE7",
   "nodes": [
     "app",
     "config.h",

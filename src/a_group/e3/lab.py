@@ -137,7 +137,7 @@ def detect_md_rd(
     actual_graph: Mapping[str, Any],
     declared_graph: Mapping[str, Any],
     commit: str,
-    detector: str = "A01_E3_MD_RD",
+    detector: str = "A01_E3_SOURCE_SCAN",
     provenance: str = "MOCK_FIXTURE",
 ) -> list[dict[str, Any]]:
     """Compare graph edges and return traceable MISSING/REDUNDANT findings."""

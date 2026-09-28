@@ -1,16 +1,16 @@
 {
   "report_type": "MD_REPORT",
-  "report_id": "md_report-318511d7bbe5ea779799835f4bc40ec2b340259a",
-  "commit": "318511d7bbe5ea779799835f4bc40ec2b340259a",
-  "configuration_id": "cc-MODE0",
+  "report_id": "md_report-cde92752d5f313721b3ebacb962096667ebfffe1",
+  "commit": "cde92752d5f313721b3ebacb962096667ebfffe1",
+  "configuration_id": "cc-O0-MODE0",
   "findings": [
     {
-      "finding_id": "missing-318511d7bbe5ea779799835f4bc40ec2b340259a-main.o-feature.h",
+      "finding_id": "missing-cde92752d5f313721b3ebacb962096667ebfffe1-main.o-feature.h",
       "type": "MISSING",
       "target": "main.o",
       "dependency": "feature.h",
-      "commit": "318511d7bbe5ea779799835f4bc40ec2b340259a",
-      "detector": "A01_E3_MD_RD",
+      "commit": "cde92752d5f313721b3ebacb962096667ebfffe1",
+      "detector": "A01_E3_SOURCE_SCAN",
       "location": {
         "artifact": "source:main.c:include:feature.h:line:3"
       },

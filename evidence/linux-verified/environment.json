@@ -1,21 +1,21 @@
 {
   "provenance": "REAL_TOOL_OUTPUT",
-  "platform": "Linux-5.10.16.3-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "platform": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
   "system": "Linux",
   "machine": "x86_64",
-  "python": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
   "tools": [
     {
       "name": "git",
       "available": true,
       "executable": "/usr/bin/git",
-      "version": "git version 2.34.1"
+      "version": "git version 2.53.0"
     },
     {
       "name": "make",
       "available": true,
       "executable": "/usr/bin/make",
-      "version": "GNU Make 4.3"
+      "version": "GNU Make 4.4.1"
     },
     {
       "name": "mingw32-make",
@@ -27,19 +27,19 @@
       "name": "cc",
       "available": true,
       "executable": "/usr/bin/cc",
-      "version": "cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0"
+      "version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
     },
     {
       "name": "gcc",
       "available": true,
       "executable": "/usr/bin/gcc",
-      "version": "gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0"
+      "version": "gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0"
     },
     {
       "name": "strace",
       "available": true,
       "executable": "/usr/bin/strace",
-      "version": "strace -- version 5.16"
+      "version": "strace -- version 6.19"
     }
   ]
 }

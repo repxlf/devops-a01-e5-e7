@@ -1,113 +1,70 @@
 # E3 Linux 实验原始证据
 
-本目录保存 **A01 组在 Linux 环境上实际执行 E3 实验后产生的记录**。
+本目录保存 A01 在 Linux 环境实际执行 E3 A 组测试基线后的记录。此次归档由修正后的 runner 一次生成，`observations.json` 为 `status: PASSED`、`verified: true`，所有命令均为零退出码，日志中没有 `Clock skew detected`。
 
-> 对应 `docs/E3_CHECKLIST.md` 中的条目：**「Linux 原始证据 —— 仅接受人工/CI 在 Linux 上生成的记录」**
-
-所有文件均为工具实际输出，**未经手工修改**。`provenance` 字段统一为 `REAL_TOOL_OUTPUT`。
-
----
-
-## 1. 运行环境
+## 运行环境
 
 | 项目 | 值 |
 |---|---|
-| 平台 | Linux x86_64（WSL2，`Linux-5.10.16.3-microsoft-standard-WSL2`，glibc 2.35） |
-| 发行版 | Ubuntu 22.04.1 LTS |
-| GNU Make | 4.3 |
-| C 编译器 | gcc / cc 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.3) |
-| strace | 5.16 |
-| Python | 3.10.12 |
-| git | 2.34.1 |
+| 平台 | Linux x86_64（kernel 7.0.0-31-generic，glibc 2.43） |
+| GNU Make | 4.4.1 |
+| C 编译器 | gcc / cc 15.2.0 |
+| strace | 6.19 |
+| Python | 3.14.4 |
+| Git | 2.53.0 |
 
-完整快照见 [`environment.json`](environment.json)。
+完整机器记录见 `environment.json`。本次运行位置为 Linux 原生文件系统；runner 复制 fixture 时不继承源时间戳，避免 Windows 挂载或归档时间造成 clock-skew。
 
-> 依据 E3 要求「系统调用跟踪使用 Linux 环境」，本实验在 WSL2 的 Linux 内核上执行，
-> 并启用 `strace` 记录系统调用。
-
-## 2. 复现命令
+## 复现命令
 
 ```bash
-# 就绪检查（应输出 "ready": true）
 python3 scripts/verify_docker.py
-
-# 真实实验（带 strace 追踪）
-python3 scripts/run_lab.py --strace --output-dir work/e3-linux-verified
+python3 scripts/run_lab.py --strace --output-dir work/e3-<new-timestamp>
 ```
 
-无 Linux 环境时可只跑计划模式（**不产生真实执行记录**）：
+输出目录必须尚不存在，避免新旧证据混合。非 Linux、必需工具缺失、行为与 oracle 不符或请求了但无法使用 strace 时，runner 返回非零退出码。
 
-```bash
-python scripts/run_lab.py --dry-run --output-dir work/e3-dry-run
-```
+## 人工答案与实际观察
 
-## 3. 预期值与实际结果
+人工预期来自 `fixtures/e3/instructor-oracle.json`，标记为 `INSTRUCTOR_ORACLE`。项目源码是课程 fixture，标记为 `MOCK_FIXTURE`。本目录的环境、命令、构建输出、扫描器输出和 trace 是实际工具运行结果，标记为 `REAL_TOOL_OUTPUT`。
 
-预期值来自 `fixtures/e3/commits/expected-observations.json`（E3 材料给定）。
+### MD/RD 故障项目
 
-### 3.1 C0 / C1 / C2 连续提交
+| 阶段 | 预期 | 实际 | 结果 |
+|---|---:|---:|---|
+| 初始 clean build | 1 | 1 | 通过 |
+| 只把未声明的 `config.h` 从 1 改为 2 后增量构建 | 1 | 1 | 通过，复现旧产物 |
+| 相同源码 clean build | 2 | 2 | 通过 |
+| 只修改已声明但未使用的 `unused.h` 后增量构建 | 2，并重新编译 `main.o` | 2，且出现编译命令 | 通过，复现多余构建 |
 
-| 提交 | SHA | 预期增量输出 | 实际 | 预期 clean 输出 | 实际 | 匹配 |
-|---|---|---|---|---|---|---|
-| **C0** | `948bd3bb259a6fb0e37b2036cf8144372070098f` | 10 | **10** | 10 | **10** | ✅ |
-| **C1** | `318511d7bbe5ea779799835f4bc40ec2b340259a` | 12 | **12** | 12 | **12** | ✅ |
-| **C2** | `025ce3991683af7850e9d997c844f4705eb2f312` | 12 | **12** | 19 | **19** | ✅ |
+扫描器得到一条 `MISSING main.o → config.h` 和一条 `REDUNDANT main.o → unused.h`，与 oracle 一致。
 
-### 3.2 检出的依赖错误
+### C0/C1/C2 连续提交
 
-| 提交 | 预期 finding | 实际 finding |
-|---|---|---|
-| C0 | 无 | 无 ✅ |
-| C1 | `MISSING main.o → feature.h` | **一致** ✅ |
-| C2 | `MISSING main.o → feature.h` | **一致** ✅ |
+| tag | SHA | 配置 | 增量输出 | clean 输出 | finding |
+|---|---|---|---:|---:|---|
+| C0 | `f5554c6ea70ca71da01755cf6a217176ecc968c7` | `cc-O0-MODE0` | 10 | 10 | 无 |
+| C1 | `cde92752d5f313721b3ebacb962096667ebfffe1` | `cc-O0-MODE0` | 12 | 12 | `MISSING main.o → feature.h` |
+| C2 | `d64348a3156817db3a3d28b4ba5703152d47d048` | `cc-O0-MODE7` | 12 | 19 | `MISSING main.o → feature.h` |
 
-> **C1 的含义**：C1 在 `main.c` 中新增 `#include "feature.h"`，但**没有修改 Makefile**。
-> 因此 Makefile 的声明依赖里缺少 `feature.h`，而实际编译会读取它 —— 这正是缺失依赖（MD）的定义。
+runner 同时保存 C1 与 C2 的 `make -n -B main.o` 输出并确认编译命令发生变化；三个提交均创建了同名 tag。
 
-### 3.3 MD / RD 样例项目（`fixtures/e3/md-rd/`）
-
-| 预期 | 实际 |
-|---|---|
-| 1 条 `MISSING`（`main.o` 实际读 `config.h`，Makefile 未声明） | ✅ |
-| 1 条 `REDUNDANT`（Makefile 声明 `unused.h`，`main.c` 未读） | ✅ |
-| 合计 2 条 | **2 条** ✅ |
-
-## 4. 关键证据：编译器确实读取了未声明的头文件
-
-`C1` 的增量构建 `strace` 记录中出现：
-
-```text
-openat(AT_FDCWD, "feature.h", O_RDONLY|O_NOCTTY) = 4
-```
-
-而 `C0` 的构建记录中**完全没有** `feature.h`（符合预期 —— C0 未引入该头文件）。
-
-**这条系统调用记录与图中的 `MISSING main.o → feature.h` finding 一一对应**，
-证明该 finding 来自真实的文件读取行为，而非静态猜测。
-
-## 5. 证据清单
+## 证据清单
 
 | 路径 | 内容 | 数量 |
-|---|---|---|
-| `environment.json` | 运行环境与工具版本快照 | 1 |
-| `observations.json` | 实验总览（预期 vs 实际、构建结果、findings） | 1 |
-| `commands/commit-repository.json` | C0/C1/C2 的 git 操作、退出码与输出 | 19 条记录，**全部退出码 0** |
-| `graphs/` | 实际依赖图与声明依赖图（actual / declared） | 8 |
+|---|---|---:|
+| `environment.json` | 环境和工具版本 | 1 |
+| `observations.json` | oracle 对照、行为结果和总状态 | 1 |
+| `commands.json` | Git、构建、执行和文件变更的汇总记录 | 52 |
+| `commands/commit-repository.json` | C0/C1/C2 Git、构建和命令快照子集 | 38 |
+| `graphs/` | actual / declared 图 | 8 |
 | `reports/` | MD / RD 报告 | 8 |
-| `traces/` | `strace -e trace=%file,%process` 系统调用记录 | 44 |
+| `traces/` | `strace -e trace=%file,%process` 原始记录 | 61 |
 
-## 6. 边界声明
+`trace_summary` 统计到 12 条 `config.h` 记录和 3 条 `feature.h` 记录，可继续回溯到 `traces/` 文件。
 
-- 本实验的**项目源码为课程 fixture**（`fixtures/e3/`），不是某个上游仓库的真实副本。
-  但 **make / gcc / git / strace 的执行与输出是真实的 Linux 工具产出**。
-- 因此 `provenance` 标为 `REAL_TOOL_OUTPUT`，指的是**工具输出真实**；
-  fixture 本身的可替换性见 `fixtures/e3/README.md`。
-- 本实验验证的是 E3 基线的**可判断性**（预期值与实际值是否一致），
-  **不构成 BuildChecker / EChecker 真实算法的完成证明**。
-- E12 阶段将接入 B01 的真实数据，届时需重新执行并替换本目录内容。
+## 边界
 
-## 7. 执行记录
-
-| 日期 | 执行人 | 环境 | 命令 | 结果 |
-|---|---|---|---|---|
-| 2026-09-26 | 李然（A01） | WSL2 / Ubuntu 22.04 / GNU Make 4.3 / gcc 11.4.0 / strace 5.16 | `python3 scripts/run_lab.py --strace` | 全部预期值匹配，14 项契约校验与 28 项单元测试通过 |
+- E3 要求的是测试基线，不是 E5 BuildChecker 或 E8 EChecker 的完整实现。
+- `ACTUAL` 图由范围受限的本地 C include 扫描器生成；`strace` 是独立保存的真实读取证据，当前代码没有声称从 trace 完成通用依赖推断。
+- fixture 不是外部论文项目或生产项目。后续接入真实项目时需要重新运行并生成新的提交 SHA 和证据目录。

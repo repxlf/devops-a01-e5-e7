@@ -10,7 +10,7 @@
       "target": "main.o",
       "dependency": "unused.h",
       "commit": "fixture-md-rd",
-      "detector": "A01_E3_MD_RD",
+      "detector": "A01_E3_SOURCE_SCAN",
       "location": {
         "artifact": "Makefile:7:main.o:unused.h"
       },

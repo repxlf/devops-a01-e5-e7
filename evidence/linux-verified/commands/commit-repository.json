@@ -3,251 +3,543 @@
     "command": [
       "/usr/bin/git",
       "init",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits"
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits"
     ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
     "returncode": 0,
-    "stdout": "Initialized empty Git repository in /mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/.git/\n",
-    "stderr": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint: \nhint: \tgit config --global init.defaultBranch <name>\nhint: \nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint: \nhint: \tgit branch -m <name>\n",
-    "duration_ms": 134,
+    "stdout": "Initialized empty Git repository in /home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/.git/\n",
+    "stderr": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n",
+    "duration_ms": 4,
     "timed_out": false
   },
   {
     "command": [
       "/usr/bin/git",
       "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
       "config",
       "user.name",
       "E3 Lab Fixture"
     ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
     "returncode": 0,
     "stdout": "",
     "stderr": "",
-    "duration_ms": 26,
+    "duration_ms": 5,
     "timed_out": false
   },
   {
     "command": [
       "/usr/bin/git",
       "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
       "config",
       "user.email",
       "e3-lab@example.invalid"
     ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
     "returncode": 0,
     "stdout": "",
     "stderr": "",
-    "duration_ms": 23,
+    "duration_ms": 2,
     "timed_out": false
   },
   {
     "command": [
       "/usr/bin/git",
       "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
       "add",
       "."
     ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
     "returncode": 0,
     "stdout": "",
     "stderr": "",
-    "duration_ms": 77,
+    "duration_ms": 2,
     "timed_out": false
   },
   {
     "command": [
       "/usr/bin/git",
       "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
       "commit",
       "-m",
       "C0"
     ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
     "returncode": 0,
-    "stdout": "[master (root-commit) 948bd3b] C0\n 3 files changed, 23 insertions(+)\n create mode 100644 Makefile\n create mode 100644 config.h\n create mode 100644 main.c\n",
+    "stdout": "[master (root-commit) f5554c6] C0\n 3 files changed, 23 insertions(+)\n create mode 100644 Makefile\n create mode 100644 config.h\n create mode 100644 main.c\n",
     "stderr": "",
-    "duration_ms": 202,
+    "duration_ms": 6,
     "timed_out": false
   },
   {
     "command": [
       "/usr/bin/git",
       "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
       "rev-parse",
       "HEAD"
     ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
     "returncode": 0,
-    "stdout": "948bd3bb259a6fb0e37b2036cf8144372070098f\n",
+    "stdout": "f5554c6ea70ca71da01755cf6a217176ecc968c7\n",
+    "stderr": "",
+    "duration_ms": 2,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "tag",
+      "C0",
+      "f5554c6ea70ca71da01755cf6a217176ecc968c7"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 3,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "add",
+      "."
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 4,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "commit",
+      "-m",
+      "C1"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "[master cde9275] C1\n 2 files changed, 3 insertions(+), 1 deletion(-)\n create mode 100644 feature.h\n",
+    "stderr": "",
+    "duration_ms": 12,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "cde92752d5f313721b3ebacb962096667ebfffe1\n",
+    "stderr": "",
+    "duration_ms": 2,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "tag",
+      "C1",
+      "cde92752d5f313721b3ebacb962096667ebfffe1"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 5,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "add",
+      "."
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 3,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "commit",
+      "-m",
+      "C2"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "[master d64348a] C2\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+    "stderr": "",
+    "duration_ms": 10,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "d64348a3156817db3a3d28b4ba5703152d47d048\n",
+    "stderr": "",
+    "duration_ms": 1,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "tag",
+      "C2",
+      "d64348a3156817db3a3d28b4ba5703152d47d048"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 3,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "checkout",
+      "--quiet",
+      "f5554c6ea70ca71da01755cf6a217176ecc968c7"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 8,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/make",
+      "-n",
+      "-B",
+      "main.o"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "cc -O0 -c main.c -o main.o\n",
+    "stderr": "",
+    "duration_ms": 2,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/strace",
+      "-ff",
+      "-o",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/traces/c0-incremental-clean",
+      "-e",
+      "trace=%file,%process",
+      "/usr/bin/make",
+      "clean"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "rm -f app main.o\n",
+    "stderr": "",
+    "duration_ms": 36,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/strace",
+      "-ff",
+      "-o",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/traces/c0-incremental-build",
+      "-e",
+      "trace=%file,%process",
+      "/usr/bin/make"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "cc -O0 -c main.c -o main.o\ncc -O0 main.o -o app\n",
+    "stderr": "",
+    "duration_ms": 251,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/app"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "10\n",
+    "stderr": "",
+    "duration_ms": 2,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "checkout",
+      "--quiet",
+      "cde92752d5f313721b3ebacb962096667ebfffe1"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 3,
+    "timed_out": false
+  },
+  {
+    "action": "normalize_mtime",
+    "path": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/main.c",
+    "reference": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/main.o",
+    "mtime": 1790579297.2856514,
+    "reference_mtime_before": 1790579297.1487348,
+    "reference_mtime_after": 1790579295.2856514,
+    "unchanged_inputs_made_older": [
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/config.h",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/feature.h"
+    ],
+    "reason": "C1 source changed; make must observe the change"
+  },
+  {
+    "command": [
+      "/usr/bin/make",
+      "-n",
+      "-B",
+      "main.o"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "cc -O0 -c main.c -o main.o\n",
+    "stderr": "",
+    "duration_ms": 2,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/strace",
+      "-ff",
+      "-o",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/traces/c1-incremental-build",
+      "-e",
+      "trace=%file,%process",
+      "/usr/bin/make"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "cc -O0 -c main.c -o main.o\ncc -O0 main.o -o app\n",
+    "stderr": "",
+    "duration_ms": 256,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/app"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "12\n",
+    "stderr": "",
+    "duration_ms": 2,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/strace",
+      "-ff",
+      "-o",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/traces/c1-clean-clean",
+      "-e",
+      "trace=%file,%process",
+      "/usr/bin/make",
+      "clean"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "rm -f app main.o\n",
+    "stderr": "",
+    "duration_ms": 31,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/strace",
+      "-ff",
+      "-o",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/traces/c1-clean-build",
+      "-e",
+      "trace=%file,%process",
+      "/usr/bin/make"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "cc -O0 -c main.c -o main.o\ncc -O0 main.o -o app\n",
+    "stderr": "",
+    "duration_ms": 300,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/app"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "12\n",
+    "stderr": "",
+    "duration_ms": 1,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/git",
+      "-C",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+      "checkout",
+      "--quiet",
+      "d64348a3156817db3a3d28b4ba5703152d47d048"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "duration_ms": 3,
+    "timed_out": false
+  },
+  {
+    "action": "normalize_mtime",
+    "path": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/main.c",
+    "reason": "C2 changes only CFLAGS; preserve C1 object for normal make"
+  },
+  {
+    "action": "normalize_mtime",
+    "path": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/config.h",
+    "reason": "C2 changes only CFLAGS; preserve C1 object for normal make"
+  },
+  {
+    "action": "normalize_mtime",
+    "path": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/feature.h",
+    "reason": "C2 changes only CFLAGS; preserve C1 object for normal make"
+  },
+  {
+    "command": [
+      "/usr/bin/make",
+      "-n",
+      "-B",
+      "main.o"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "cc -O0 -DMODE=7 -c main.c -o main.o\n",
+    "stderr": "",
+    "duration_ms": 2,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/strace",
+      "-ff",
+      "-o",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/traces/c2-incremental-build",
+      "-e",
+      "trace=%file,%process",
+      "/usr/bin/make"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "make: 'app' is up to date.\n",
+    "stderr": "",
+    "duration_ms": 19,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/app"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "12\n",
+    "stderr": "",
+    "duration_ms": 1,
+    "timed_out": false
+  },
+  {
+    "command": [
+      "/usr/bin/strace",
+      "-ff",
+      "-o",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/traces/c2-clean-clean",
+      "-e",
+      "trace=%file,%process",
+      "/usr/bin/make",
+      "clean"
+    ],
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
+    "returncode": 0,
+    "stdout": "rm -f app main.o\n",
     "stderr": "",
     "duration_ms": 35,
     "timed_out": false
   },
   {
     "command": [
-      "/usr/bin/git",
-      "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
-      "add",
-      "."
+      "/usr/bin/strace",
+      "-ff",
+      "-o",
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/traces/c2-clean-build",
+      "-e",
+      "trace=%file,%process",
+      "/usr/bin/make"
     ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
     "returncode": 0,
-    "stdout": "",
+    "stdout": "cc -O0 -DMODE=7 -c main.c -o main.o\ncc -O0 -DMODE=7 main.o -o app\n",
     "stderr": "",
-    "duration_ms": 66,
+    "duration_ms": 273,
     "timed_out": false
   },
   {
     "command": [
-      "/usr/bin/git",
-      "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
-      "commit",
-      "-m",
-      "C1"
+      "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits/app"
     ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
+    "cwd": "/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/commits",
     "returncode": 0,
-    "stdout": "[master 318511d] C1\n 2 files changed, 3 insertions(+), 1 deletion(-)\n create mode 100644 feature.h\n",
+    "stdout": "19\n",
     "stderr": "",
-    "duration_ms": 303,
+    "duration_ms": 2,
     "timed_out": false
-  },
-  {
-    "command": [
-      "/usr/bin/git",
-      "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
-      "rev-parse",
-      "HEAD"
-    ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
-    "returncode": 0,
-    "stdout": "318511d7bbe5ea779799835f4bc40ec2b340259a\n",
-    "stderr": "",
-    "duration_ms": 38,
-    "timed_out": false
-  },
-  {
-    "command": [
-      "/usr/bin/git",
-      "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
-      "add",
-      "."
-    ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
-    "returncode": 0,
-    "stdout": "",
-    "stderr": "",
-    "duration_ms": 87,
-    "timed_out": false
-  },
-  {
-    "command": [
-      "/usr/bin/git",
-      "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
-      "commit",
-      "-m",
-      "C2"
-    ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
-    "returncode": 0,
-    "stdout": "[master 025ce39] C2\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
-    "stderr": "",
-    "duration_ms": 310,
-    "timed_out": false
-  },
-  {
-    "command": [
-      "/usr/bin/git",
-      "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
-      "rev-parse",
-      "HEAD"
-    ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
-    "returncode": 0,
-    "stdout": "025ce3991683af7850e9d997c844f4705eb2f312\n",
-    "stderr": "",
-    "duration_ms": 39,
-    "timed_out": false
-  },
-  {
-    "command": [
-      "/usr/bin/git",
-      "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
-      "checkout",
-      "--quiet",
-      "948bd3bb259a6fb0e37b2036cf8144372070098f"
-    ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
-    "returncode": 0,
-    "stdout": "",
-    "stderr": "",
-    "duration_ms": 203,
-    "timed_out": false
-  },
-  {
-    "command": [
-      "/usr/bin/git",
-      "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
-      "checkout",
-      "--quiet",
-      "318511d7bbe5ea779799835f4bc40ec2b340259a"
-    ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
-    "returncode": 0,
-    "stdout": "",
-    "stderr": "",
-    "duration_ms": 225,
-    "timed_out": false
-  },
-  {
-    "action": "normalize_mtime",
-    "path": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/main.c",
-    "reason": "C1 source changed; make must observe the change"
-  },
-  {
-    "command": [
-      "/usr/bin/git",
-      "-C",
-      "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits",
-      "checkout",
-      "--quiet",
-      "025ce3991683af7850e9d997c844f4705eb2f312"
-    ],
-    "cwd": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified",
-    "returncode": 0,
-    "stdout": "",
-    "stderr": "",
-    "duration_ms": 242,
-    "timed_out": false
-  },
-  {
-    "action": "normalize_mtime",
-    "path": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/main.c",
-    "reason": "C2 changes only CFLAGS; preserve C1 object for normal make"
-  },
-  {
-    "action": "normalize_mtime",
-    "path": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/config.h",
-    "reason": "C2 changes only CFLAGS; preserve C1 object for normal make"
-  },
-  {
-    "action": "normalize_mtime",
-    "path": "/mnt/d/JuniorYearFirstSemester/devops/devops-a01/work/e3-linux-verified/projects/commits/feature.h",
-    "reason": "C2 changes only CFLAGS; preserve C1 object for normal make"
   }
 ]

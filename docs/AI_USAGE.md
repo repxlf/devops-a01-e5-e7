@@ -64,3 +64,24 @@ ChatGPT / Codex
 - B 组 DRAFT、MDFixer 和 Docker 镜像构建。
 - 特定真实课程项目的依赖采集算法。
 - 未获得远端新 main 时的 B 组分支修改。
+
+## Record 003：E3 完整性复核与 Linux 重跑
+
+### 工具/模型
+
+ChatGPT / Codex
+
+### 任务
+
+逐页对照 E3 课件，复核 `feature/e3-linux-evidence` 的实现与归档证据，补齐遗漏后重新运行。
+
+### AI 建议与人工判断
+
+- 补做 MD 旧产物、clean build 和 RD 多余重编译三个行为步骤。
+- 将课件人工答案与 fixture、真实工具输出分开标记。
+- 创建 C0/C1/C2 tags，记录完整 SHA 和 C1/C2 编译命令快照。
+- C2 使用 MODE7 配置标识；任何预期不匹配均使 runner 非零退出。
+- 真实运行限制为 Linux，并拒绝复用输出目录或静默忽略缺失的 strace。
+- 在 Linux 原生文件系统重新生成证据，排除原 WSL `/mnt/d` 日志中的 clock-skew。
+
+以上均采纳；未扩大到 E5 BuildChecker、E8 EChecker 或 B 组任务。

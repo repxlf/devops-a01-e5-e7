@@ -1,0 +1,36 @@
+{
+  "provenance": "INSTRUCTOR_ORACLE",
+  "source": "E3_并行测试基线_20260910.pptx",
+  "scope": "A_GROUP_E3_TEST_BASELINE",
+  "md_rd": {
+    "findings": [
+      ["MISSING", "main.o", "config.h"],
+      ["REDUNDANT", "main.o", "unused.h"]
+    ],
+    "initial_stdout": "1",
+    "after_config_change_incremental_stdout": "1",
+    "after_config_change_clean_stdout": "2",
+    "after_unused_change_stdout": "2",
+    "unused_change_recompiles_main_o": true
+  },
+  "commits": {
+    "C0": {
+      "configuration_id": "cc-O0-MODE0",
+      "expected_clean_stdout": "10",
+      "expected_incremental_stdout": "10",
+      "findings": []
+    },
+    "C1": {
+      "configuration_id": "cc-O0-MODE0",
+      "expected_clean_stdout": "12",
+      "expected_incremental_stdout": "12",
+      "findings": [["MISSING", "main.o", "feature.h"]]
+    },
+    "C2": {
+      "configuration_id": "cc-O0-MODE7",
+      "expected_clean_stdout": "19",
+      "expected_incremental_stdout": "12",
+      "findings": [["MISSING", "main.o", "feature.h"]]
+    }
+  }
+}

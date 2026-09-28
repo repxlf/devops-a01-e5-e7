@@ -30,14 +30,20 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--require-docker", action="store_true")
     args = parser.parse_args()
-    tools = [version(name) for name in ("docker", "make", "mingw32-make", "cc", "strace", "python3")]
+    tools = [version(name) for name in ("docker", "git", "make", "mingw32-make", "cc", "strace", "python3")]
+    by_name = {str(item["name"]): item for item in tools}
     make_ready = any(item["available"] for item in tools if item["name"] in {"make", "mingw32-make"})
+    linux_ready = platform.system() == "Linux"
     result = {
-        "provenance": "MOCK_FIXTURE",
+        "provenance": "REAL_TOOL_OUTPUT",
         "platform": platform.platform(),
         "tools": tools,
         "docker_required": args.require_docker,
-        "ready": make_ready and all(item["available"] for item in tools if item["name"] in {"cc", "python3"}) and (not args.require_docker or tools[0]["available"]),
+        "linux_required": True,
+        "ready": linux_ready
+        and make_ready
+        and all(by_name[name]["available"] for name in ("git", "cc", "strace", "python3"))
+        and (not args.require_docker or by_name["docker"]["available"]),
         "note": "Readiness is not a successful E3 experiment. Run scripts/run_lab.py on Linux and retain its observations.",
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))

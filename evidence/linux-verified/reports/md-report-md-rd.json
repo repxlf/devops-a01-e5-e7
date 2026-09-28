@@ -10,7 +10,7 @@
       "target": "main.o",
       "dependency": "config.h",
       "commit": "fixture-md-rd",
-      "detector": "A01_E3_MD_RD",
+      "detector": "A01_E3_SOURCE_SCAN",
       "location": {
         "artifact": "source:main.c:include:config.h:line:2"
       },

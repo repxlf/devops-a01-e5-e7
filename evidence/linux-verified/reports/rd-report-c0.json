@@ -1,8 +1,8 @@
 {
   "report_type": "RD_REPORT",
-  "report_id": "rd_report-948bd3bb259a6fb0e37b2036cf8144372070098f",
-  "commit": "948bd3bb259a6fb0e37b2036cf8144372070098f",
-  "configuration_id": "cc-MODE0",
+  "report_id": "rd_report-f5554c6ea70ca71da01755cf6a217176ecc968c7",
+  "commit": "f5554c6ea70ca71da01755cf6a217176ecc968c7",
+  "configuration_id": "cc-O0-MODE0",
   "findings": [],
   "provenance": "REAL_TOOL_OUTPUT"
 }
