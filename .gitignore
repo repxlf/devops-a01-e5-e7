@@ -11,6 +11,12 @@ build/
 .omc/
 .idea/
 .vscode/
+# E4 密钥与本地配置；保留原有忽略项和 E3 证据规则。
+.env
+.env.*
+!.env.example
+*.pem
+*.key
 # work/ 是临时运行目录，不提交
 work/*
 !work/.gitkeep

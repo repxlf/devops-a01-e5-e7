@@ -4,7 +4,26 @@
 
 当前版本的目标不是声称真实检测器已经完成，而是把后续实现所需的边界、输入、输出、样例、测试和接入位置固定下来。
 
-> 当前仓库中的 JSON、依赖图、报告、证据和流程结果均为 `MOCK_FIXTURE` 或 `CONTRACT_EXAMPLE`，除非文件明确说明已经接入真实工具。
+> E2 JSON 和 mock 流程仍是契约样例。E3 的已归档 Linux 证据见 `evidence/linux-verified/`；E4 使用真实容器构建、测试和 strace 冒烟，个人运行证据保存在被忽略的 `work/` 中。各类结果以文件中的来源标记和实际日志为准。
+
+## E4 快速入口
+
+E4 已按老师模板接入。每位组员在服务器自己的学号目录克隆本仓库，
+在**仓库根目录**设置本地身份并运行：
+
+```bash
+git config --local user.name '<学号>'
+git config --local user.email '<学号>@localhost'
+make all
+```
+
+`make all` 依次执行环境检查、镜像构建、服务单测、冒烟测试和密钥扫描。
+不要加 `-j` 并行运行。完整步骤、分支选择、两人对照与 E5 接续见
+[E4_README.md](E4_README.md)。
+
+E4 入口统一为 `services/buildchecker/`，既有 `src/a_group/`、E2 契约和 E3
+实验资料继续保留。老师的 `fixtures/md-rd/` 用于 E4 冒烟，`fixtures/e3/` 用于
+E3 基线实验，二者分工见 E4 说明。
 
 ## 0. 与其他仓库的关系
 
@@ -143,7 +162,7 @@ EChecker 使用 BuildChecker 产生的历史依赖图作为 baseline，对后续
 ```text
 schemas/       统一 Job、请求、报告、依赖图、finding 和 artifact 结构
 src/a_group/   A 组后续实现的代码入口，包括 E3 实验纯逻辑
-services/      A/B 四个服务角色的边界说明
+services/      E4 buildchecker 服务入口，以及其他服务角色的边界说明
 fixtures/      C0/C1/C2、E3 项目、依赖图、报告和证据的 mock 数据
 examples/      从 E2 契约到端到端流程以及 E3 预期结果的样例
 tests/         契约、BuildChecker、EChecker、流程和评估测试
@@ -172,7 +191,8 @@ src/a_group/workflow/
 
 ## 4. 运行当前框架
 
-本仓库不要求第三方运行时依赖。使用 Python 3.10 或更高版本。
+以下 E2/E3 框架校验使用 Python 3.10 或更高版本，不要求第三方运行时依赖。
+E4 使用 Docker/Compose，并通过 `requirements-dev.lock` 安装服务测试依赖。
 
 ### 校验契约和样例
 
@@ -306,8 +326,10 @@ ANALYSIS_5001  分析器失败
 - 真实 EChecker 服务
 - 真实 MDFixer 服务
 - 特定语言或编译器的依赖分析算法
-- Docker 服务部署
-- 真实仓库、镜像、作者、commit 或 PR 信息
+- 完整检测服务的 HTTP/API 部署
+
+E4 已提供可构建的服务镜像与 Compose 运行入口；实际镜像 ID、工具版本和
+执行结果以各次 `work/<时间>/` 的记录为准。
 
 所有未接入真实工具的结果必须标记为 `MOCK_FIXTURE` 或 `CONTRACT_EXAMPLE`。
 
