@@ -1,0 +1,36 @@
+{
+  "graph_id": "actual-c1",
+  "graph_kind": "ACTUAL",
+  "commit": "cde92752d5f313721b3ebacb962096667ebfffe1",
+  "configuration_id": "cc-O0-MODE0",
+  "nodes": [
+    "app",
+    "config.h",
+    "feature.h",
+    "main.c",
+    "main.o"
+  ],
+  "edges": [
+    {
+      "source": "app",
+      "target": "main.o",
+      "evidence": "build:app:link:main.o"
+    },
+    {
+      "source": "main.o",
+      "target": "config.h",
+      "evidence": "source:main.c:include:config.h:line:2"
+    },
+    {
+      "source": "main.o",
+      "target": "feature.h",
+      "evidence": "source:main.c:include:feature.h:line:3"
+    },
+    {
+      "source": "main.o",
+      "target": "main.c",
+      "evidence": "build:main.o:source:main.c"
+    }
+  ],
+  "provenance": "REAL_TOOL_OUTPUT"
+}

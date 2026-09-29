@@ -1,0 +1,30 @@
+{
+  "graph_id": "declared-c1",
+  "graph_kind": "DECLARED",
+  "commit": "cde92752d5f313721b3ebacb962096667ebfffe1",
+  "configuration_id": "cc-O0-MODE0",
+  "nodes": [
+    "app",
+    "config.h",
+    "main.c",
+    "main.o"
+  ],
+  "edges": [
+    {
+      "source": "app",
+      "target": "main.o",
+      "evidence": "Makefile:4:app:main.o"
+    },
+    {
+      "source": "main.o",
+      "target": "config.h",
+      "evidence": "Makefile:7:main.o:config.h"
+    },
+    {
+      "source": "main.o",
+      "target": "main.c",
+      "evidence": "Makefile:7:main.o:main.c"
+    }
+  ],
+  "provenance": "REAL_TOOL_OUTPUT"
+}

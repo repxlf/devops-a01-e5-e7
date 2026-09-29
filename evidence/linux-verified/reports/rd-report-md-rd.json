@@ -1,0 +1,24 @@
+{
+  "report_type": "RD_REPORT",
+  "report_id": "rd_report-fixture-md-rd",
+  "commit": "fixture-md-rd",
+  "configuration_id": "cc-MODE0",
+  "findings": [
+    {
+      "finding_id": "redundant-fixture-md-rd-main.o-unused.h",
+      "type": "REDUNDANT",
+      "target": "main.o",
+      "dependency": "unused.h",
+      "commit": "fixture-md-rd",
+      "detector": "A01_E3_SOURCE_SCAN",
+      "location": {
+        "artifact": "Makefile:7:main.o:unused.h"
+      },
+      "evidence": [
+        "Makefile:7:main.o:unused.h"
+      ],
+      "provenance": "REAL_TOOL_OUTPUT"
+    }
+  ],
+  "provenance": "REAL_TOOL_OUTPUT"
+}

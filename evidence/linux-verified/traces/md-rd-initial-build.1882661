@@ -1,0 +1,77 @@
+execve("/usr/bin/make", ["/usr/bin/make"], 0x7fff42ddc4c8 /* 46 vars */) = 0
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NAME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NAME", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_PAPER", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_PAPER", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TIME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TIME", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = 3
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
+getcwd("/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/md-rd", 4096) = 73
+newfstatat(AT_FDCWD, "/usr/gnu/include", 0x7ffc8954af50, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/local/include", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/usr/include", {st_mode=S_IFDIR|0755, st_size=20480, ...}, 0) = 0
+newfstatat(AT_FDCWD, ".", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+openat(AT_FDCWD, ".", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+openat(AT_FDCWD, "Makefile", O_RDONLY)  = 3
+newfstatat(AT_FDCWD, "RCS", 0x7ffc8954aee0, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "SCCS", 0x7ffc8954aee0, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "Makefile", {st_mode=S_IFREG|0664, st_size=146, ...}, 0) = 0
+newfstatat(AT_FDCWD, "app", 0x7ffc89548c90, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "main.o", 0x7ffc89548c90, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "main.c", {st_mode=S_IFREG|0664, st_size=100, ...}, 0) = 0
+newfstatat(AT_FDCWD, "unused.h", {st_mode=S_IFREG|0664, st_size=80, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/home/user/.local/bin/cc", 0x7ffc8954a730, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/user/bin/cc", 0x7ffc8954a730, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/user/.codex/packages/standalone/releases/0.156.1-x86_64-unknown-linux-musl/codex-path/cc", 0x7ffc8954a730, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/user/.codex/tmp/arg0/codex-arg028JfrA/cc", 0x7ffc8954a730, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/user/.vscode-server/cli/servers/Stable-04c0d99f4fb0d8afe6ce4f0c58e31e183ac3e4b1/server/bin/remote-cli/cc", 0x7ffc8954a730, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/local/sbin/cc", 0x7ffc8954a730, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/local/bin/cc", 0x7ffc8954a730, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/sbin/cc", 0x7ffc8954a730, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/bin/cc", {st_mode=S_IFREG|0755, st_size=1305304, ...}, 0) = 0
+access("/usr/bin/cc", X_OK)             = 0
+newfstatat(AT_FDCWD, "/usr/bin/cc", {st_mode=S_IFREG|0755, st_size=1305304, ...}, 0) = 0
+clone3({flags=CLONE_VM|CLONE_VFORK|CLONE_CLEAR_SIGHAND, exit_signal=SIGCHLD, stack=0x71bc53eea000, stack_size=0x9000}, 88) = 1882662
+wait4(-1, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 1882662
+newfstatat(AT_FDCWD, "main.o", {st_mode=S_IFREG|0664, st_size=1496, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/home/user/.local/bin/cc", 0x7ffc8954a8b0, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/user/bin/cc", 0x7ffc8954a8b0, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/user/.codex/packages/standalone/releases/0.156.1-x86_64-unknown-linux-musl/codex-path/cc", 0x7ffc8954a8b0, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/user/.codex/tmp/arg0/codex-arg028JfrA/cc", 0x7ffc8954a8b0, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/user/.vscode-server/cli/servers/Stable-04c0d99f4fb0d8afe6ce4f0c58e31e183ac3e4b1/server/bin/remote-cli/cc", 0x7ffc8954a8b0, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/local/sbin/cc", 0x7ffc8954a8b0, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/local/bin/cc", 0x7ffc8954a8b0, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/sbin/cc", 0x7ffc8954a8b0, 0) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/bin/cc", {st_mode=S_IFREG|0755, st_size=1305304, ...}, 0) = 0
+access("/usr/bin/cc", X_OK)             = 0
+newfstatat(AT_FDCWD, "/usr/bin/cc", {st_mode=S_IFREG|0755, st_size=1305304, ...}, 0) = 0
+clone3({flags=CLONE_VM|CLONE_VFORK|CLONE_CLEAR_SIGHAND, exit_signal=SIGCHLD, stack=0x71bc53eea000, stack_size=0x9000}, 88) = 1882665
+wait4(-1, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 1882665
+newfstatat(AT_FDCWD, "app", {st_mode=S_IFREG|0775, st_size=15952, ...}, 0) = 0
+chdir("/home/user/DevOps/devops-a01-e3/work/e3-final-20260928-v2/projects/md-rd") = 0
+exit_group(0)                           = ?
++++ exited with 0 +++

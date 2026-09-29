@@ -11,3 +11,9 @@ build/
 .omc/
 .idea/
 .vscode/
+# work/ 是临时运行目录，不提交
+work/*
+!work/.gitkeep
+
+# evidence/linux-verified/ 是人工在 Linux 上运行 scripts/run_lab.py 后归档的证据，
+# 需要提交（见 evidence/linux-verified/README.md）

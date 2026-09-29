@@ -64,6 +64,39 @@ B 组 MDFixer / REPAIR
 8. 比较增量与全量检测的一致性和耗时
 9. 完成 BuildChecker → EChecker 联调
 
+## 1.1 E3 A 组并行测试基线
+
+E3 的 A 组实验入口是 `scripts/run_lab.py`，材料与结果目录如下：
+
+```text
+fixtures/e3/md-rd/                 MD/RD 最小 GNU Make 项目
+fixtures/e3/commits/C0/            正确初始版本
+fixtures/e3/commits/C1/            增加 feature.h include，Makefile 不变
+fixtures/e3/commits/C2/            只增加 -DMODE=7
+fixtures/e3/instructor-oracle.json  来自 E3 课件的人工预期与判断依据
+scripts/run_lab.py                 记录命令、退出码、输出和耗时
+scripts/verify_docker.py           只检查环境，不下载或启动容器
+work/<run>/                        单次运行目录，默认忽略
+evidence/linux-verified/            已归档的 Linux 原始证据
+```
+
+运行前先检查工具：
+
+```bash
+python3 scripts/verify_docker.py
+python3 scripts/run_lab.py --strace --output-dir work/e3-<timestamp>
+```
+
+缺少 Linux/GNU Make/C 编译器时可以检查结构，但只能使用 dry-run：
+
+```bash
+python scripts/run_lab.py --dry-run --output-dir work/e3-dry-run
+```
+
+dry-run 和仓库静态样例都标记为 `MOCK_FIXTURE`。它们不能冒充 Linux 原始实验。完整映射见 `docs/E3_CHECKLIST.md`，来源标记决策见 `docs/ADR-006-e3-experiment-provenance.md`。
+
+真实运行会拒绝非 Linux 环境、缺失的必需工具和已存在的输出目录。它依次验证 MD 的旧产物行为、clean build 对照、RD 的多余重编译、C0/C1/C2 tags、编译命令变化以及预期 finding；任一检查失败都会返回非零退出码。`--strace` 被请求但不可用时也会直接失败。顶层 `commands.json` 保存完整命令与文件变更记录；未请求 trace 的成功运行标为 `PASSED_WITHOUT_TRACE`，只有带 trace 且全部通过的运行才是 `PASSED`、`verified: true`。
+
 ## 2. A 组服务边界
 
 ### BuildChecker
@@ -109,13 +142,13 @@ EChecker 使用 BuildChecker 产生的历史依赖图作为 baseline，对后续
 
 ```text
 schemas/       统一 Job、请求、报告、依赖图、finding 和 artifact 结构
-src/a_group/   A 组后续实现的代码入口
+src/a_group/   A 组后续实现的代码入口，包括 E3 实验纯逻辑
 services/      A/B 四个服务角色的边界说明
-fixtures/      C0/C1/C2、依赖图、报告和证据的 mock 数据
-examples/      从 E2 契约到端到端流程的样例
+fixtures/      C0/C1/C2、E3 项目、依赖图、报告和证据的 mock 数据
+examples/      从 E2 契约到端到端流程以及 E3 预期结果的样例
 tests/         契约、BuildChecker、EChecker、流程和评估测试
 docs/          架构、接口、ADR、Backlog、AI 使用和 Git 追溯
-scripts/       样例、报告校验和 mock 流程运行入口
+scripts/       样例、报告校验、mock 流程和 E3 实验入口
 ```
 
 代码实现边界如下：

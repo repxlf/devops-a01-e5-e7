@@ -1,0 +1,25 @@
+{
+  "provenance": "MOCK_FIXTURE",
+  "oracle": {
+    "provenance": "INSTRUCTOR_ORACLE",
+    "source": "fixtures/e3/instructor-oracle.json"
+  },
+  "C0": {
+    "configuration_id": "cc-O0-MODE0",
+    "expected_clean_stdout": "10",
+    "expected_incremental_stdout": "10",
+    "findings": []
+  },
+  "C1": {
+    "configuration_id": "cc-O0-MODE0",
+    "expected_clean_stdout": "12",
+    "expected_incremental_stdout": "12",
+    "findings": [["MISSING", "main.o", "feature.h"]]
+  },
+  "C2": {
+    "configuration_id": "cc-O0-MODE7",
+    "expected_clean_stdout": "19",
+    "expected_incremental_stdout": "12",
+    "findings": [["MISSING", "main.o", "feature.h"]]
+  }
+}
