@@ -4,7 +4,7 @@
 |---|---|---|---|---|---|
 | E2-01 | 统一 Job 模型 | A01/B01 | `schemas/task.schema.json` | 四类任务可表达 | DONE-MOCK |
 | E2-02 | FULL_CHECK 输入输出 | A01 | `examples/e2-contract/` | 固定提交和环境可说明 | DONE-MOCK |
-| E2-03 | 增量 baseline | A01 | incremental request | 缺 baseline、环境或配置不匹配被拒绝 | DONE-MOCK |
+| E2-03 | 增量 baseline 校验用例 | A01 (张润弛) | `examples/e2-contract/invalid/`, `tests/` | 缺 baseline、环境或配置不匹配被 400 拒绝 | DONE-MOCK |
 | E2-04 | MD/RD 报告 | A01/B01 | report fixtures、`report.schema.json` | 下游能识别 finding、提交、配置和证据 | DONE-MOCK |
 | E2-05 | artifact 访问约定 | A01/B01 | ADR-002、artifact schema | 下游知道如何读取 URI、生产 Job、提交和配置 | DONE-MOCK |
 | E2-08 | 修复报告输入 | B01 | REPAIR request、ADR-005 | 只消费同源 MD 报告；缺失或不匹配时创建阶段拒绝 | DONE-MOCK |

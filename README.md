@@ -6,6 +6,31 @@
 
 > 当前仓库中的 JSON、依赖图、报告、证据和流程结果均为 `MOCK_FIXTURE` 或 `CONTRACT_EXAMPLE`，除非文件明确说明已经接入真实工具。
 
+## 0. 与其他仓库的关系
+
+本仓库是 **A 组工作库**，同时是 **A01/B01 共享契约的权威源**。
+
+| 仓库 | 用途 | 关系 |
+|---|---|---|
+| **`devops-a01`**（本仓库） | A 组工作库：BuildChecker / EChecker 实现 | **共享契约的权威源** |
+| `devops-final-product` | A01 / B01 共享契约库 | 镜像自本仓库 |
+| `devops-b01` | B 组工作库：DRAFT / MDFixer 实现 | — |
+
+**契约变更流程**：
+
+```text
+① 在本仓库修改契约（schemas / examples / scripts / 共同文档）
+        ↓
+② 同步到 devops-final-product，保持逐字节一致
+        ↓
+③ 在共享库提 Merge Request，由 B01 确认
+        ↓
+④ 合并
+```
+
+> ⚠️ **不要只改共享库**——那会让两边分叉，联调时接口对不上。
+> 详见 [docs/GIT_TRACEABILITY.md](docs/GIT_TRACEABILITY.md)
+
 ## 1. 完整任务流程
 
 ```text
@@ -296,5 +321,6 @@ ANALYSIS_5001  分析器失败
 - `docs/BACKLOG.md` 是否需要更新
 - `docs/AI_USAGE.md` 是否需要记录 AI 建议和人工判断
 - `docs/GIT_TRACEABILITY.md` 是否记录作者、commit、Issue 或 PR
+- **契约是否已同步到 `devops-final-product` 共享库**（见第 0 节）
 
 不要在文档中伪造真实 commit SHA、作者或验证结果。没有真实数据时，使用明确占位符并标注待补充。

@@ -35,53 +35,48 @@ ChatGPT / Codex
 
 当前通过 JSON 样例、校验脚本和 mock flow 验证结构与数据交接。真实算法接入后，需要补充实验结果和代码版本。
 
-## Record 002：E3 A 组实验基线
+## Record 002：B01 契约评审与 E2 加固
 
 ### 工具/模型
 
-ChatGPT / Codex
+AI 辅助编码代理；具体模型名称未记录在 Git 历史中。
 
 ### 任务
 
-根据 `E3_并行测试基线_20260910.pptx` 为 A 组建立 MD/RD 项目、C0/C1/C2 快照、命令观察和 finding 证据框架。
+审阅 B01 在共享仓库 `devops-final-product` 的 `b01xiugai` 分支提交 `23c0699`，批判性吸收其中对 A01 E2 契约、反例和端到端流程的修改意见。
 
 ### AI 建议
 
-- 用最小 C/Make 项目明确区分实际 include 与 Makefile prerequisites。
-- 用 C0/C1/C2 保留普通增量构建与 clean build 的对比位置。
-- 保存环境、命令、退出码、输出和耗时，并把预期值与实际值分开。
+- 强制成功 Job 携带 `output`，补齐四类请求的必要输入。
+- 为 Artifact 增加 commit/configuration 元数据。
+- 校验增量 baseline 与 REPAIR 报告的跨字段同源关系。
+- 增加创建成功、请求拒绝和 REPAIR 候选拒绝样例。
+- 将一致性评估与修复后的 RECHECK 分开。
 
 ### 人工判断
 
-采纳：
+采纳 B01 对成功输出、Artifact 元数据、跨字段校验、反例和流程职责的意见；保留 `CANCELLED` 并定义取消接口，将声明风格说明建模为 `PATCH_NOTES`。
 
-- 将 E3 A 组范围限定为 PPT 中的 MD/RD、BuildChecker 观察和连续提交实验。
-- 将静态样例和 dry-run 统一标为 `MOCK_FIXTURE`。
-- 只预留真实 Linux/BuildChecker 适配点，不虚构课程项目 SHA、Docker ID 或 Linux 结果。
+没有逐字照搬 B01 修改稿：MD 报告混入 `REDUNDANT` 被视为接线错误并拒绝，而不是静默忽略。E2 仍是契约和 mock 阶段，不扩展为真实服务或真实检测算法；契约允许在 E3 开发过程中继续版本化演进。
 
-未在本次任务中实现：
+### 关联与验证
 
-- B 组 DRAFT、MDFixer 和 Docker 镜像构建。
-- 特定真实课程项目的依赖采集算法。
-- 未获得远端新 main 时的 B 组分支修改。
+- B01 评审来源：`devops-final-product@23c0699`。
+- A01 实施提交：`75a5529`～`0ba9075`。
+- `python3 scripts/validate.py`：14 项通过。
+- `python3 scripts/run_mock_flow.py`：6 个 mock 阶段通过。
+- `python3 -m unittest discover -s tests -v`：24 项通过。
+- 标准 Draft 2020-12 独立校验：4 个请求、8 个 Job、5 个依赖图、3 个报告及 2 个 HTTP 响应样例通过。
+- `git diff --check`：通过。
 
-## Record 003：E3 完整性复核与 Linux 重跑
-
-### 工具/模型
-
-ChatGPT / Codex
-
-### 任务
-
-逐页对照 E3 课件，复核 `feature/e3-linux-evidence` 的实现与归档证据，补齐遗漏后重新运行。
-
-### AI 建议与人工判断
-
-- 补做 MD 旧产物、clean build 和 RD 多余重编译三个行为步骤。
-- 将课件人工答案与 fixture、真实工具输出分开标记。
-- 创建 C0/C1/C2 tags，记录完整 SHA 和 C1/C2 编译命令快照。
-- C2 使用 MODE7 配置标识；任何预期不匹配均使 runner 非零退出。
-- 真实运行限制为 Linux，并拒绝复用输出目录或静默忽略缺失的 strace。
-- 在 Linux 原生文件系统重新生成证据，排除原 WSL `/mnt/d` 日志中的 clock-skew。
-
-以上均采纳；未扩大到 E5 BuildChecker、E8 EChecker 或 B 组任务。
+上述结果只证明 E2 契约、样例和 mock 数据交接自洽，不表示 BuildChecker、EChecker、DRAFT 或 MDFixer 的真实算法已经完成。
+## 条目 2026-09-26：EChecker 增量请求契约与反例拦截设计
+- 记录人：张润弛
+- 涉及模块/文件：`docs/BACKLOG.md`, `tests/test_negative_cases.py`
+- AI 提出方案：
+  - 建议当增量检测请求缺少 `baseline` 字段时，后台自动退化为全量检测（FULL_CHECK）以提高容错性。
+- 人工分析与决策：
+  - 拒绝自动退化方案：根据课程规范，增量任务必须能严格追溯基线提交与历史图（E2 / 12, E2 / 22），隐式退化会破坏下游审计追踪链。
+  - 采纳强校验规则：缺少 `baseline` 或基线配置与当前提交不匹配时，API 层面直接返回 400 拒绝请求。
+- 验证方式：
+  - 补充反例用例断言，运行 `python -m unittest discover -s tests -v` 验证全部拦截通过。
