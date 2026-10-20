@@ -2,9 +2,9 @@
 C01,共同,环境,云主机与Docker,PASS,work/final-checks/environment.json,Docker 29.1.3; Ubuntu 22.04.5
 C02,共同,E5,真实复现与差异,PASS,work/e5-a01/,原始trace和make-db已保存
 C03,共同,E6,输入哈希报告日志,PASS,work/e6-before-a01/; work/e6-after-a01/,仅Makefile哈希变化
-C04,共同,E7,自主扩展测试,PASS,services/buildchecker/tests/test_fullcheck.py,符号链接fixture拒绝测试; 总数16
-C05,共同,CI,正常失败恢复及artifact,PENDING,,等待GitHub设备授权
-C06,共同,CI,必需检查与实际拒绝合并,PENDING,,等待GitHub设备授权
+C04,共同,E7,自主扩展测试,PASS,services/buildchecker/tests/test_fullcheck.py,符号链接fixture拒绝测试; 服务器总数16; CI合并后总数17
+C05,共同,CI,正常失败恢复及artifact,PASS,GitHub Actions 39358529018; 39358683747; 39358839351,三类运行和artifact已备份
+C06,共同,CI,必需检查与实际拒绝合并,PASS,https://github.com/repxlf/devops-a01-e5-e7/pull/1,OPEN/BLOCKED时合并退出1; 修复后MERGED
 A01,A,E6,MD/RD精确证据与修复,PASS,work/e6-before-a01/evidence/findings.json; work/e6-after-a01/evidence/findings.json,修复前2条修复后0条
 A02,A,E7,三次一致及故障场景,PASS,work/e7-a01/gate/gate-result.json,八项全部passed=true
 B01,B,E5,缺失make及候选来源,N/A,,A轨道不适用
