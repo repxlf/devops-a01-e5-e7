@@ -1,2 +1,2 @@
-"""BuildChecker 服务骨架（E4）。E5/E6 在这里实现论文方法。"""
-__version__ = "0.1.0"
+"""A01 BuildChecker implementation for the E5-E7 teaching profile."""
+__version__ = "0.2.0-teaching"
