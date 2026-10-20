@@ -6,6 +6,25 @@
 
 > E2 JSON 和 mock 流程仍是契约样例。E3 的已归档 Linux 证据见 `evidence/linux-verified/`；E4 使用真实容器构建、测试和 strace 冒烟，个人运行证据保存在被忽略的 `work/` 中。各类结果以文件中的来源标记和实际日志为准。
 
+## E5–E7 A 轨道快速入口
+
+E5–E7 使用 `scripts/lab_cloud.py` 在 Linux Docker 主机生成不覆盖的证据目录：
+
+```bash
+python3 scripts/lab_cloud.py build --out work/build-01 --build-timeout 1200
+python3 scripts/lab_cloud.py e5 --out work/e5-01
+python3 scripts/lab_cloud.py e6 --out work/e6-before
+python3 scripts/lab_cloud.py e6 --fixed --out work/e6-after
+python3 scripts/verify_e6_evidence.py \
+  --before work/e6-before/evidence/findings.json \
+  --after work/e6-after/evidence/findings.json
+python3 -m unittest discover -s tests/e7 -v
+python3 scripts/lab_cloud.py gate --out work/e7-01
+```
+
+修复前的 E6 因 `--fail-on-findings` 预期退出 1；这表示门禁发现 MD/RD，
+不表示 clean build 失败。完整说明、报告和验收表见 `docs/e5-e7/`。
+
 ## E4 快速入口
 
 E4 已按老师模板接入。每位组员在服务器自己的学号目录克隆本仓库，

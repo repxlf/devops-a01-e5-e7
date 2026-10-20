@@ -19,10 +19,13 @@ gh auth setup-git --hostname github.com
 
 ```bash
 read -r -p "自己的空仓库 HTTPS Git 地址: " repo_url
-git remote add origin "$repo_url"
-git push -u origin main
+git remote add github "$repo_url"
+git push -u github HEAD:main
 gh repo view --json nameWithOwner,visibility,url
 ```
+
+> A01 适配：`origin` 继续指向 NJU GitLab，GitHub 作业镜像使用 `github` 远程，
+> 避免覆盖正式仓库的推送目标。
 
 ## 2. 正常 CI 和保护
 
@@ -61,13 +64,13 @@ gh api "repos/$repo/commits/$sha/check-runs" --jq '.check_runs[] | {name, conclu
 配置文件使用 App ID `15368`，与输出核对；如有不同，修改 JSON 中的 `app_id`。A 组执行：
 
 ```bash
-gh api --method PUT "repos/$repo/branches/main/protection" --input ../../ci/A-main-protection.json --jq '{checks: .required_status_checks.checks, strict: .required_status_checks.strict, enforce_admins: .enforce_admins.enabled}'
+gh api --method PUT "repos/$repo/branches/main/protection" --input ci/A-main-protection.json --jq '{checks: .required_status_checks.checks, strict: .required_status_checks.strict, enforce_admins: .enforce_admins.enabled}'
 ```
 
 B 轨道整块复制：
 
 ```bash
-gh api --method PUT "repos/$repo/branches/main/protection" --input ../../ci/B-main-protection.json --jq '{checks: .required_status_checks.checks, strict: .required_status_checks.strict, enforce_admins: .enforce_admins.enabled}'
+gh api --method PUT "repos/$repo/branches/main/protection" --input ci/B-main-protection.json --jq '{checks: .required_status_checks.checks, strict: .required_status_checks.strict, enforce_admins: .enforce_admins.enabled}'
 ```
 
 配置成功后，输出应包含对应检查名称，且 `strict`、`enforce_admins` 均为 `true`。
@@ -83,14 +86,14 @@ git switch -c e7-gate-reject-demo
 A 仅执行：
 
 ```bash
-cp ../../ci/rejection-demo/A/test_ci_reject_demo.py services/buildchecker/tests/
+cp ci/rejection-demo/A/test_ci_reject_demo.py services/buildchecker/tests/
 git add services/buildchecker/tests/test_ci_reject_demo.py
 ```
 
 B 仅执行：
 
 ```bash
-cp ../../ci/rejection-demo/B/test_ci_reject_demo.py services/draft/tests/
+cp ci/rejection-demo/B/test_ci_reject_demo.py services/draft/tests/
 git add services/draft/tests/test_ci_reject_demo.py
 ```
 
@@ -136,14 +139,14 @@ gh run download "$fail_run" --dir "work/ci-rejection/artifacts-$fail_run"
 A 仅执行：
 
 ```bash
-cp ../../ci/rejection-demo/A/fixed/test_ci_reject_demo.py services/buildchecker/tests/
+cp ci/rejection-demo/A/fixed/test_ci_reject_demo.py services/buildchecker/tests/
 git add services/buildchecker/tests/test_ci_reject_demo.py
 ```
 
 B 仅执行：
 
 ```bash
-cp ../../ci/rejection-demo/B/fixed/test_ci_reject_demo.py services/draft/tests/
+cp ci/rejection-demo/B/fixed/test_ci_reject_demo.py services/draft/tests/
 git add services/draft/tests/test_ci_reject_demo.py
 ```
 
