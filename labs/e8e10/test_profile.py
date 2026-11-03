@@ -53,4 +53,23 @@ class ProfileTests(unittest.TestCase):
         missing={f['dependency'] for f in incremental['findings'] if f['type']=='MISSING'}
         self.assertEqual(missing,{'config.h','extra.h','leaf.h'})
 
+
+class Student241880136Tests(unittest.TestCase):
+    def test_required_header_deletion_never_reuses_stale_graph(self):
+        """Deleting a required header must invalidate the cached graph and fail."""
+        with tempfile.TemporaryDirectory() as directory:
+            project = Path(directory) / 'sample'
+            fixture(project)
+            previous = scan(project)
+            self.assertIn('config.h', previous['actual']['main.o'])
+
+            (project / 'config.h').unlink()
+            commit(project, 'student: delete required header')
+
+            # GCC -MM must be rerun and reject the missing header. Reusing the
+            # stale main.o graph would incorrectly turn this into a success.
+            with self.assertRaisesRegex(ValueError, 'COMMAND_FAILED'):
+                scan(project, previous)
+
+
 if __name__=='__main__':unittest.main()
